@@ -70,6 +70,67 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Signature Custom Slat Walls Spotlight */}
+      <section className="section bg-[#1A1008] text-white relative overflow-hidden" aria-labelledby="custom-slat-spotlight-heading">
+        <div className="container-site">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5">
+              <span className="text-rust font-bold text-xs uppercase tracking-widest bg-rust/20 border border-rust/40 px-3 py-1 rounded-full inline-block mb-3">
+                Featured Craftsmanship
+              </span>
+              <h2 id="custom-slat-spotlight-heading" className="font-heading font-black text-3xl md:text-4xl text-white mb-4">
+                Custom Architectural Slat Walls &amp; Media Suites
+              </h2>
+              <p className="text-orange-100/80 text-sm md:text-base leading-relaxed mb-6">
+                Take your home interior to the next level. We design and install precision acoustic slat walls, backlit Calacatta marble mounting panels, electric linear fireplaces, and floating custom credenzas with zero visible cords.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/gallery" className="btn-rust text-sm py-3 px-6">
+                  See Project Gallery →
+                </Link>
+                <Link href="/book?service=Custom%20Slat%20Walls" className="btn-outline text-white border-white/30 text-sm py-3 px-6">
+                  Book Custom Build
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/projects/oak-slat-media-wall.jpg"
+                    alt="Natural White Oak Slat Media Wall"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4">
+                  <p className="font-heading font-bold text-white text-base">White Oak Slat Wall</p>
+                  <p className="text-xs text-orange-100/70 mt-1">Concealed wiring, flush TV mount &amp; floating credenza.</p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/projects/charcoal-fireplace-slat-wall.jpg"
+                    alt="Charcoal Slat Fireplace Wall with Marble"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4">
+                  <p className="font-heading font-bold text-white text-base">Charcoal Fireplace Suite</p>
+                  <p className="text-xs text-orange-100/70 mt-1">Calacatta marble backer with ribbon fireplace credenza.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service categories */}
       {SERVICE_CATEGORIES.map((category) => (
         <section

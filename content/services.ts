@@ -61,6 +61,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         bookingParam: "Drywall & Painting",
       },
       {
+        id: "slat-walls",
+        name: "Custom Slat Walls & Architectural Feature Walls",
+        description:
+          "Parametric 3D wave walls, vertical oak and acoustic slats, backlit marble TV panels, floating credenzas, and integrated electric fireplace media walls.",
+        icon: "hammer",
+        category: "interior",
+        bookingParam: "Custom Slat Walls",
+      },
+      {
         id: "carpentry",
         name: "Carpentry & Trim",
         description:

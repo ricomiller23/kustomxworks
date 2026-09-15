@@ -11,7 +11,7 @@ import { TestimonialCard } from "@/components/TestimonialCard";
 import { CTABand } from "@/components/CTABand";
 import { LeadForm } from "@/components/LeadForm";
 import { ServiceAreaMap } from "@/components/ServiceAreaMap";
-import { PhoneIcon } from "lucide-react";
+import { PhoneIcon, SparklesIcon, ArrowRightIcon, MapPinIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Concrete Block Walls, Landscaping & Handyman Services | KustomXworks",
@@ -325,6 +325,199 @@ export default function HomePage() {
               <Link href="/book?service=Construction%20Expertise" className="btn-rust w-full text-center text-sm py-3">
                 Consult Construction Expert →
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SIGNATURE ARCHITECTURAL MILLWORK & SLAT WALLS ── */}
+      <section
+        className="section text-white relative overflow-hidden"
+        style={{ background: "linear-gradient(135deg, #150E07 0%, #241A13 50%, #1D140D 100%)" }}
+        aria-labelledby="architectural-woodwork-heading"
+      >
+        {/* Subtle background mesh */}
+        <div
+          className="absolute inset-0 opacity-5 pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h18v2H22v18h-2V20.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm8 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20z' fill='%23C1502E' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+          }}
+        />
+
+        <div className="container-site relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rust/20 border border-rust/40 text-orange-200 text-xs font-bold uppercase tracking-wider mb-3">
+                <SparklesIcon size={14} className="text-rust" />
+                <span>Signature Architectural Woodwork</span>
+              </div>
+              <h2
+                id="architectural-woodwork-heading"
+                className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-white leading-tight"
+              >
+                Custom Slat Walls &amp; Luxury Media Centers
+              </h2>
+              <p className="text-orange-100/70 text-base sm:text-lg mt-3">
+                Elevate your home with master-level carpentry: 3D parametric acoustic wave walls, floor-to-ceiling Scandinavian oak slats, and backlit Calacatta marble fireplace suites.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/gallery" className="btn-outline text-white border-white/30 hover:border-white text-sm py-3 px-5">
+                View Full Gallery →
+              </Link>
+              <Link href="/book?service=Custom%20Slat%20Walls" className="btn-rust text-sm py-3 px-5">
+                Book Custom Build
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 1 */}
+            <div className="group rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-rust/60 transition-all duration-300 flex flex-col justify-between shadow-xl hover:shadow-2xl">
+              <div>
+                <div className="aspect-[16/10] overflow-hidden relative bg-black/40">
+                  <img
+                    src="/projects/parametric-wave-wall.jpg"
+                    alt="Parametric 3D wooden wave wall sculpture with golden LED lighting"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-3 left-3 bg-black/75 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-md border border-white/20 flex items-center gap-1">
+                    <MapPinIcon size={11} className="text-rust" /> Palm Springs
+                  </span>
+                </div>
+                <div className="p-5">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-rust bg-rust/10 px-2 py-0.5 rounded">
+                    3D Parametric Millwork
+                  </span>
+                  <h3 className="font-heading font-bold text-lg text-white mt-2 mb-1.5">
+                    Parametric Wave Wall
+                  </h3>
+                  <p className="text-xs text-orange-100/70 leading-relaxed">
+                    Custom-machined flowing timber wave wall with precision warm 2700K golden LED illumination channels.
+                  </p>
+                </div>
+              </div>
+              <div className="p-5 pt-0">
+                <Link
+                  href="/gallery#parametric-wave-wall"
+                  className="text-xs font-bold text-rust hover:text-orange-300 transition-colors inline-flex items-center gap-1"
+                >
+                  View Project Specs <ArrowRightIcon size={12} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="group rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-rust/60 transition-all duration-300 flex flex-col justify-between shadow-xl hover:shadow-2xl">
+              <div>
+                <div className="aspect-[16/10] overflow-hidden relative bg-black/40">
+                  <img
+                    src="/projects/oak-slat-media-wall.jpg"
+                    alt="Floor to ceiling natural white oak vertical slat wall with flush TV mount"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-3 left-3 bg-black/75 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-md border border-white/20 flex items-center gap-1">
+                    <MapPinIcon size={11} className="text-rust" /> Temecula
+                  </span>
+                </div>
+                <div className="p-5">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-rust bg-rust/10 px-2 py-0.5 rounded">
+                    White Oak Acoustic Slats
+                  </span>
+                  <h3 className="font-heading font-bold text-lg text-white mt-2 mb-1.5">
+                    White Oak Slat Media Wall
+                  </h3>
+                  <p className="text-xs text-orange-100/70 leading-relaxed">
+                    Floor-to-ceiling vertical oak slats, full in-wall cable concealment, and custom 3-bay floating credenza.
+                  </p>
+                </div>
+              </div>
+              <div className="p-5 pt-0">
+                <Link
+                  href="/gallery#oak-slat-media-wall"
+                  className="text-xs font-bold text-rust hover:text-orange-300 transition-colors inline-flex items-center gap-1"
+                >
+                  View Project Specs <ArrowRightIcon size={12} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="group rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-rust/60 transition-all duration-300 flex flex-col justify-between shadow-xl hover:shadow-2xl">
+              <div>
+                <div className="aspect-[16/10] overflow-hidden relative bg-black/40">
+                  <img
+                    src="/projects/charcoal-fireplace-slat-wall.jpg"
+                    alt="Dark charcoal vertical slat wall with Calacatta marble and electric fireplace"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-3 left-3 bg-black/75 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-md border border-white/20 flex items-center gap-1">
+                    <MapPinIcon size={11} className="text-rust" /> Corona
+                  </span>
+                </div>
+                <div className="p-5">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-rust bg-rust/10 px-2 py-0.5 rounded">
+                    Marble &amp; Fireplace Suite
+                  </span>
+                  <h3 className="font-heading font-bold text-lg text-white mt-2 mb-1.5">
+                    Charcoal Fireplace Slat Wall
+                  </h3>
+                  <p className="text-xs text-orange-100/70 leading-relaxed">
+                    Deep charcoal acoustic slats, polished Calacatta marble slab, and built-in electric ribbon fireplace.
+                  </p>
+                </div>
+              </div>
+              <div className="p-5 pt-0">
+                <Link
+                  href="/gallery#charcoal-fireplace-slat-wall"
+                  className="text-xs font-bold text-rust hover:text-orange-300 transition-colors inline-flex items-center gap-1"
+                >
+                  View Project Specs <ArrowRightIcon size={12} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="group rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-rust/60 transition-all duration-300 flex flex-col justify-between shadow-xl hover:shadow-2xl">
+              <div>
+                <div className="aspect-[16/10] overflow-hidden relative bg-black/40">
+                  <img
+                    src="/projects/luxury-backlit-entertainment-center.jpg"
+                    alt="Backlit Calacatta marble and black acoustic slat entertainment center"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-3 left-3 bg-black/75 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-md border border-white/20 flex items-center gap-1">
+                    <MapPinIcon size={11} className="text-rust" /> Moreno Valley
+                  </span>
+                </div>
+                <div className="p-5">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-rust bg-rust/10 px-2 py-0.5 rounded">
+                    Designer Entertainment Suite
+                  </span>
+                  <h3 className="font-heading font-bold text-lg text-white mt-2 mb-1.5">
+                    Backlit Luxury Media Wall
+                  </h3>
+                  <p className="text-xs text-orange-100/70 leading-relaxed">
+                    Matte black acoustic slats, 3000K warm halo backlit marble TV panel, dual brass sconces, and floating credenza.
+                  </p>
+                </div>
+              </div>
+              <div className="p-5 pt-0">
+                <Link
+                  href="/gallery#luxury-backlit-entertainment-center"
+                  className="text-xs font-bold text-rust hover:text-orange-300 transition-colors inline-flex items-center gap-1"
+                >
+                  View Project Specs <ArrowRightIcon size={12} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

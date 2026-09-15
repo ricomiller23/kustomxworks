@@ -86,6 +86,78 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Master Craftsmanship Showcase */}
+      <section className="section bg-white border-y border-tan/30" aria-labelledby="craftsmanship-heading">
+        <div className="container-site">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-rust font-bold text-xs uppercase tracking-widest bg-rust/10 px-3 py-1 rounded-full inline-block mb-3">
+                Precision Finish Carpentry &amp; Millwork
+              </span>
+              <h2 id="craftsmanship-heading" className="font-heading font-black text-3xl md:text-4xl text-espresso mb-5">
+                Master Craftsmanship You Can See &amp; Feel
+              </h2>
+              <p className="text-[#6B5E52] leading-relaxed mb-4">
+                While we take pride in fixing doors, drywall, and plumbing, KustomXworks is also home to true architectural craftsmen. We design, fabricate, and install custom 3D acoustic wave sculptures, Scandinavian slat walls, and designer media centers that transform ordinary rooms into luxury retreats.
+              </p>
+              <ul className="space-y-3 text-sm text-espresso font-semibold mb-8">
+                <li className="flex items-center gap-2">
+                  <span className="text-rust font-bold">✓</span> Custom parametric wall carvings &amp; integrated LED illumination
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-rust font-bold">✓</span> Bookmatched Calacatta marble slab backers &amp; linear fireplaces
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-rust font-bold">✓</span> Floor-to-ceiling acoustic slat paneling with zero visible fasteners
+                </li>
+              </ul>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/gallery" className="btn-rust text-sm py-3 px-6">
+                  Explore Project Gallery →
+                </Link>
+                <Link href="/book?service=Custom%20Slat%20Walls" className="btn-outline text-sm py-3 px-6">
+                  Book Custom Build
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-2xl overflow-hidden shadow-lg border border-tan/40 group bg-white">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/projects/parametric-wave-wall.jpg"
+                    alt="Parametric 3D wave wall sculpture"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-3.5 bg-white text-xs">
+                  <p className="font-bold text-espresso text-sm">3D Wave Sculpture</p>
+                  <p className="text-[11px] text-[#6B5E52]">Palm Springs Lounge</p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-lg border border-tan/40 group bg-white">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/projects/luxury-backlit-entertainment-center.jpg"
+                    alt="Luxury backlit entertainment center"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-3.5 bg-white text-xs">
+                  <p className="font-bold text-espresso text-sm">Backlit Media Center</p>
+                  <p className="text-[11px] text-[#6B5E52]">Moreno Valley Residence</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Values */}
       <section className="section bg-white" aria-labelledby="values-heading">
         <div className="container-site">
