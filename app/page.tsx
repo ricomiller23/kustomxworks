@@ -86,8 +86,8 @@ export default function HomePage() {
           }}
         />
 
-        <div className="container-site relative z-10 py-16 md:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="container-site relative z-10 pt-12 md:pt-16 pb-32 md:pb-40">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Left Column: Headline, Highlights & Actions */}
             <div className="lg:col-span-7">
               {/* Trust chips */}
@@ -144,14 +144,20 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <a
-                href={`tel:${BUSINESS.phoneRaw}`}
-                className="inline-flex items-center gap-2 mt-6 text-orange-100/80 font-semibold hover:text-white transition-colors"
-                aria-label={`Call us: ${BUSINESS.phone}`}
-              >
-                <PhoneIcon size={18} className="text-rust" aria-hidden="true" />
-                <span>Call 24/7: <strong className="text-white">{BUSINESS.phone}</strong></span>
-              </a>
+              <div className="pt-6 relative z-20">
+                <a
+                  href={`tel:${BUSINESS.phoneRaw}`}
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-black/50 hover:bg-black/80 border border-white/20 text-orange-100 font-semibold transition-all shadow-xl hover:border-rust group"
+                  aria-label={`Call us: ${BUSINESS.phone}`}
+                >
+                  <span className="w-8 h-8 rounded-lg bg-rust/30 flex items-center justify-center text-rust group-hover:bg-rust transition-colors">
+                    <PhoneIcon size={18} className="text-white" aria-hidden="true" />
+                  </span>
+                  <span>
+                    Call 24/7: <strong className="text-white text-base tracking-wide ml-1">{BUSINESS.phone}</strong>
+                  </span>
+                </a>
+              </div>
             </div>
 
             {/* Right Column: Video directly to the right of the headline */}
@@ -199,7 +205,7 @@ export default function HomePage() {
         </div>
 
         {/* Diagonal cut */}
-        <div className="absolute bottom-0 left-0 right-0 overflow-hidden" style={{ height: "60px" }}>
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none z-0" style={{ height: "60px" }}>
           <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ width: "100%", height: "100%" }}>
             <path d="M0,60 L1440,0 L1440,60 Z" fill="#F7F1E8" />
           </svg>
