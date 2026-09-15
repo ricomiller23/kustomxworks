@@ -12,8 +12,8 @@ export const BUSINESS = {
   shortName: "KustomXworks",
 
   // ── Contact ────────────────────────────────────────────────────────────────
-  phone: "951-391-2200",
-  phoneRaw: "9513912200",
+  phone: "(951) 325-4248",
+  phoneRaw: "9513254248",
   email: "kustomxworks@proton.me",
   website: "https://www.kustomxworks.com",
 
