@@ -35,11 +35,18 @@ export default function ServicesPage() {
             <span aria-hidden="true">/</span>
             <span aria-current="page">Services</span>
           </nav>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rust/30 border border-rust/50 text-orange-100 text-xs font-bold uppercase tracking-wider mb-4">
+            <span>🇺🇸</span>
+            <span>Tools Ready. Work Steady. America Strong.</span>
+          </div>
           <h1 id="services-h1" className="font-heading font-black text-4xl md:text-5xl text-white mb-3">
-            Our Handyman Services
+            Our Handyman &amp; Construction Services
           </h1>
-          <p className="text-orange-100/70 text-lg max-w-2xl">
-            One call covers everything — from drywall to aging-in-place modifications. Flat-rate pricing, same-week service, satisfaction guaranteed.
+          <p className="text-orange-100 font-heading font-bold text-lg max-w-2xl mb-2">
+            Handyman Expertise, Contractor-Level Strength — Building America Back From the Ground Up.
+          </p>
+          <p className="text-orange-100/70 text-base max-w-2xl">
+            One call covers everything — from concrete block walls and structural framing to drywall and finish carpentry. Flat-rate pricing, same-week service, satisfaction guaranteed.
           </p>
         </div>
       </section>

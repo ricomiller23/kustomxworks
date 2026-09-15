@@ -194,17 +194,21 @@ export default function GalleryPage() {
           </nav>
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rust/30 border border-rust/50 text-orange-100 text-xs font-semibold uppercase tracking-wider mb-4">
-              <SparklesIcon size={14} className="text-rust" />
-              <span>Real Portfolio of Work</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rust/30 border border-rust/50 text-orange-100 text-xs font-bold uppercase tracking-wider mb-4">
+              <span>🇺🇸</span>
+              <span>American Craft. American Grit.</span>
             </div>
 
-            <h1 id="gallery-h1" className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl text-white mb-4 leading-tight">
+            <h1 id="gallery-h1" className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl text-white mb-3 leading-tight">
               Project Gallery &amp; Craftsmanship
             </h1>
 
-            <p className="text-orange-100/80 text-lg sm:text-xl leading-relaxed mb-6">
-              From one-of-a-kind 3D parametric wave walls and luxury acoustic slat entertainment centers to heavy-duty concrete block walls and turnkey home improvements across the Inland Empire &amp; Coachella Valley.
+            <p className="text-orange-100 font-heading font-bold text-lg sm:text-xl mb-2">
+              From Repairs to Renovations — Building America Back From the Ground Up.
+            </p>
+
+            <p className="text-orange-100/80 text-base sm:text-lg leading-relaxed mb-6">
+              Strength you can see: from bespoke 3D parametric wave walls and luxury acoustic slat entertainment centers to heavy-duty concrete block walls and turnkey outdoor living across the Inland Empire &amp; Coachella Valley.
             </p>
 
             <div className="flex flex-wrap gap-4">

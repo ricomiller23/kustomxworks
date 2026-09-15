@@ -90,8 +90,17 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Left Column: Headline, Highlights & Actions */}
             <div className="lg:col-span-7">
+              {/* Patriotic Headline Motto */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-rust/40 to-rust/20 border border-rust/60 text-orange-100 text-xs sm:text-sm font-bold uppercase tracking-wider mb-5 shadow-lg animate-fade-up">
+                <span className="text-base">🇺🇸</span>
+                <span>Building America Back From the Ground Up — One Project at a Time</span>
+              </div>
+
               {/* Trust chips */}
               <div className="flex flex-wrap gap-2 mb-6 animate-fade-up">
+                <span className="trust-chip text-xs font-semibold px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(193,80,46,0.35)", color: "#EDE6DC", border: "1px solid rgba(193,80,46,0.5)" }}>
+                  ✓ American Craft. American Grit.
+                </span>
                 <span className="trust-chip text-xs font-semibold px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(193,80,46,0.35)", color: "#EDE6DC", border: "1px solid rgba(193,80,46,0.5)" }}>
                   ✓ Concrete Block Walls
                 </span>
@@ -119,8 +128,11 @@ export default function HomePage() {
                 <p className="text-white font-bold text-lg mb-1">
                   Concrete Block Walls · Custom Landscaping · Construction Expertise
                 </p>
-                <p className="text-sm text-orange-100/80 leading-relaxed">
-                  From heavy structural masonry and desert outdoor living to precision repairs and whole-property remodeling, we deliver unmatched master craftsmanship and reliability.
+                <p className="text-sm text-orange-100/90 leading-relaxed font-semibold mb-1">
+                  Handyman Expertise, Contractor-Level Strength — Building America Back From the Ground Up.
+                </p>
+                <p className="text-xs text-orange-100/75 leading-relaxed">
+                  From heavy structural masonry and modern outdoor transformations to precision repairs and whole-property remodeling, we deliver unmatched master craftsmanship and reliability.
                 </p>
               </div>
 
@@ -154,6 +166,7 @@ export default function HomePage() {
                     <PhoneIcon size={18} className="text-white" aria-hidden="true" />
                   </span>
                   <span>
+                    <span className="text-xs text-orange-200/90 block sm:inline sm:mr-2">One Call. Every Solution. Built for America.</span>
                     Call 24/7: <strong className="text-white text-base tracking-wide ml-1">{BUSINESS.phone}</strong>
                   </span>
                 </a>
@@ -220,13 +233,16 @@ export default function HomePage() {
         <div className="container-site">
           <div className="text-center mb-12">
             <span className="text-rust font-bold text-xs uppercase tracking-widest bg-rust/10 px-3.5 py-1 rounded-full inline-block mb-3">
-              Core Pillars of Excellence
+              Strong Hands. Strong Homes. Strong America.
             </span>
             <h2 id="specialties-heading" className="font-heading font-black text-3xl md:text-5xl text-espresso mb-4">
               Concrete Block Walls, Landscaping &amp; Construction Expertise
             </h2>
-            <p className="text-[#6B5E52] max-w-2xl mx-auto text-base md:text-lg">
+            <p className="text-[#6B5E52] max-w-2xl mx-auto text-base md:text-lg mb-2">
               Beyond everyday home repairs, KustomXworks is recognized across the Inland Empire and Coachella Valley for heavy-duty structural masonry, modern outdoor transformations, and master construction.
+            </p>
+            <p className="text-rust font-heading font-bold text-sm tracking-wide uppercase">
+              Strength You Can See — Built Proud. Built Strong.
             </p>
           </div>
 
@@ -641,11 +657,14 @@ export default function HomePage() {
       <section className="section bg-cream" aria-labelledby="why-heading">
         <div className="container-site">
           <div className="text-center mb-12">
-            <h2 id="why-heading" className="font-heading font-black text-3xl md:text-4xl text-espresso mb-3">
+            <h2 id="why-heading" className="font-heading font-black text-3xl md:text-4xl text-espresso mb-2">
               Why KustomXworks?
             </h2>
+            <p className="text-rust font-heading font-bold text-sm uppercase tracking-wider mb-2">
+              Hard Work. Honest Results. American Built.
+            </p>
             <p className="text-[#6B5E52] max-w-xl mx-auto">
-              {BUSINESS.customersServed} homeowners have trusted us. Here&rsquo;s why.
+              Built to last. Fixed with pride. {BUSINESS.customersServed} homeowners have trusted us. Here&rsquo;s why.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

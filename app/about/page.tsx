@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { title: "Show Up", desc: "We confirm appointments, arrive on time, and call if anything changes. Reliability is non-negotiable." },
-  { title: "Price Up Front", desc: "You get a flat-rate quote before we start. No surprises, no 'and while I'm here' upsells." },
-  { title: "Do It Right", desc: "We don't rush quality. Every repair is done to last — not just to look done." },
-  { title: "Respect Your Home", desc: "We treat your home as if it were our own. We clean up, protect your floors, and leave no trace." },
-  { title: "Communicate", desc: "You hear from us before, during, and after the job. No guesswork about what was done or what it cost." },
-  { title: "Stand Behind It", desc: "If you're not satisfied, we make it right. That's the guarantee — no fine print." },
+  { title: "Work Done Right. Work Done Proud.", desc: "We don't rush quality or take shortcuts. Every repair and build is crafted tough to last — not just to look done." },
+  { title: "Price Up Front", desc: "You get a flat-rate quote before we start. No surprises, no 'and while I'm here' upsells. Hard work, honest results, American built." },
+  { title: "Tools Ready. Work Steady.", desc: "America strong. We confirm appointments, arrive on time, and communicate clearly from start to finish." },
+  { title: "Strong Hands. Strong Homes.", desc: "We treat your property with respect — clean up thoroughly, protect your floors, and leave no trace behind." },
+  { title: "Built to Last. Fixed with Pride.", desc: "If you're not 100% satisfied, we make it right. That's the craftsman guarantee — no fine print." },
+  { title: "American Craft. American Grit.", desc: "Trusted craftsmanship for a stronger America. Every technician represents our standard of excellence in your home." },
 ];
 
 export default function AboutPage() {
@@ -36,10 +36,17 @@ export default function AboutPage() {
             <Link href="/">Home</Link><span>/</span>
             <span aria-current="page">About</span>
           </nav>
-          <h1 id="about-h1" className="font-heading font-black text-4xl md:text-5xl text-white mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rust/30 border border-rust/50 text-orange-100 text-xs font-bold uppercase tracking-wider mb-4">
+            <span>🇺🇸</span>
+            <span>Your Project. Our Pride. America’s Future.</span>
+          </div>
+          <h1 id="about-h1" className="font-heading font-black text-4xl md:text-5xl text-white mb-3">
             About KustomXworks
           </h1>
-          <p className="text-orange-100/70 text-lg max-w-2xl">
+          <p className="text-orange-100 font-heading font-bold text-xl mb-2">
+            “Building America Back From the Ground Up — One Project at a Time.”
+          </p>
+          <p className="text-orange-100/70 text-base max-w-2xl">
             {BUSINESS.tagline}. {BUSINESS.yearsInBusiness} years of service. {BUSINESS.customersServed} customers. One promise: we make it right.
           </p>
         </div>
@@ -64,6 +71,9 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Every technician on the KustomXworks team is background-checked, trained in our standards, and represents our name in your home. That matters to us — because we live and work in this community too.
+                </p>
+                <p className="text-espresso font-semibold">
+                  America starts at home. We believe strong communities depend on honest trades, durable craftsmanship, and work done proud. Every fix, every project is our contribution to building America back from the ground up.
                 </p>
               </div>
             </div>
@@ -92,11 +102,14 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="text-rust font-bold text-xs uppercase tracking-widest bg-rust/10 px-3 py-1 rounded-full inline-block mb-3">
-                Precision Finish Carpentry &amp; Millwork
+                Crafted Tough. Built for America.
               </span>
-              <h2 id="craftsmanship-heading" className="font-heading font-black text-3xl md:text-4xl text-espresso mb-5">
+              <h2 id="craftsmanship-heading" className="font-heading font-black text-3xl md:text-4xl text-espresso mb-2">
                 Master Craftsmanship You Can See &amp; Feel
               </h2>
+              <p className="text-rust font-heading font-bold text-sm tracking-wide uppercase mb-4">
+                Where Quality Meets American Strength
+              </p>
               <p className="text-[#6B5E52] leading-relaxed mb-4">
                 While we take pride in fixing doors, drywall, and plumbing, KustomXworks is also home to true architectural craftsmen. We design, fabricate, and install custom 3D acoustic wave sculptures, Scandinavian slat walls, and designer media centers that transform ordinary rooms into luxury retreats.
               </p>

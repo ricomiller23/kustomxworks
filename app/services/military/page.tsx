@@ -26,13 +26,21 @@ export default function MilitaryPage() {
             <Link href="/services">Services</Link><span>/</span>
             <span aria-current="page">Military</span>
           </nav>
-          <span className="inline-block mb-4 px-3 py-1 rounded-full text-sm font-bold" style={{ backgroundColor: "#C1502E", color: "white" }}>
-            🎖️ 15% Military Discount
-          </span>
-          <h1 id="mil-h1" className="font-heading font-black text-4xl md:text-5xl text-white mb-4">
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span className="inline-block px-3 py-1 rounded-full text-sm font-bold" style={{ backgroundColor: "#C1502E", color: "white" }}>
+              🎖️ 15% Military Discount
+            </span>
+            <span className="inline-block px-3 py-1 rounded-full text-sm font-bold bg-white/15 text-orange-100 border border-white/20">
+              🇺🇸 Proud Work for Proud Americans
+            </span>
+          </div>
+          <h1 id="mil-h1" className="font-heading font-black text-4xl md:text-5xl text-white mb-3">
             Military Move &amp; Repair Package
           </h1>
-          <p className="text-orange-100/70 text-lg max-w-2xl mb-6">
+          <p className="text-orange-100 font-heading font-bold text-lg mb-2">
+            Where Quality Meets American Strength — Professional Work. Patriotic Values.
+          </p>
+          <p className="text-orange-100/70 text-base max-w-2xl mb-6">
             Proudly serving active duty, veterans, and their families. PCS move-in/out packages, background-checked techs, honest flat-rate pricing — and 15% off, always.
           </p>
           <Link href="/book?service=Military+Package" className="btn-rust">

@@ -13,7 +13,7 @@ interface CTABandProps {
 
 export function CTABand({
   heading = "Ready to Get Started?",
-  subheading = "Schedule your free estimate today. Same-week service available across the Inland Empire & Coachella Valley.",
+  subheading = "Your Home. Our Craftsmanship. America’s Comeback Starts Here. Schedule your flat-rate estimate today. Same-week service across the Inland Empire & Coachella Valley.",
   primaryLabel = "Book Your Free Estimate",
   primaryHref = "/book",
   showPhone = true,
@@ -48,6 +48,9 @@ export function CTABand({
       aria-labelledby="cta-heading"
     >
       <div className="container-site text-center">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/20 border border-white/20 text-orange-100 text-xs font-bold uppercase tracking-wider mb-4">
+          <span>Fix. Build. Restore. · Reliable Repairs. Quality Builds. America Strong.</span>
+        </div>
         <h2
           id="cta-heading"
           className={`font-heading font-black text-3xl md:text-4xl ${textClass} mb-3`}

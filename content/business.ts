@@ -10,6 +10,10 @@ export const BUSINESS = {
   name: "KustomXworks Handyman Services",
   tagline: "Inland Empire & Desert's Most Trusted Handyman Service",
   shortName: "KustomXworks",
+  motto: "Building America Back From the Ground Up — One Project at a Time.",
+  patrioticTagline: "American Craft. American Grit.",
+  craftsmanPromise: "Hard Work. Honest Results. American Built.",
+
 
   // ── Contact ────────────────────────────────────────────────────────────────
   phone: "(951) 325-4248",
@@ -66,6 +70,12 @@ export const BUSINESS = {
 
   // ── Trust Points ───────────────────────────────────────────────────────────
   trustPoints: [
+    {
+      id: "american-built",
+      icon: "shield",
+      label: "American Craft. American Grit.",
+      detail: "Work Done Right. Work Done Proud.",
+    },
     {
       id: "block-walls",
       icon: "tool",

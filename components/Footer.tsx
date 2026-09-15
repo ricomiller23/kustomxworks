@@ -26,8 +26,11 @@ export function Footer() {
                 <div className="text-xs font-semibold leading-tight" style={{ color: "#D8C4A8" }}>Handyman Services</div>
               </div>
             </div>
+            <div className="text-xs font-bold uppercase tracking-wider text-orange-200 mb-2">
+              Building America Back From the Ground Up — One Project at a Time.
+            </div>
             <p className="text-sm leading-relaxed mb-6" style={{ color: "#B8A89A" }}>
-              {BUSINESS.tagline}. Serving {BUSINESS.cityCount} cities across the Inland Empire &amp; Coachella Valley with master construction expertise, concrete block walls, custom landscaping, and flat-rate handyman services.
+              American Craft. American Grit. Serving {BUSINESS.cityCount} cities across the Inland Empire &amp; Coachella Valley with master construction expertise, concrete block walls, custom landscaping, and flat-rate handyman services.
             </p>
             <div className="space-y-3">
               <a
@@ -138,22 +141,22 @@ export function Footer() {
       <div className="border-t py-6" style={{ borderColor: "#3D3028" }}>
         <div className="container-site flex flex-wrap items-center justify-center gap-6 text-sm">
           <div className="flex items-center gap-2">
+            <span className="text-base">🇺🇸</span>
+            <span style={{ color: "#EDE6DC" }} className="font-semibold">
+              Quality Work With American Pride · Professional Work. Patriotic Values.
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
             <ShieldCheckIcon size={16} style={{ color: "#C1502E" }} aria-hidden="true" />
             <span style={{ color: "#B8A89A" }}>
               Concrete Block Walls, Landscaping &amp; Construction Expertise
             </span>
           </div>
-          <div className="flex items-center gap-2">
-            <span style={{ color: "#C1502E" }}>★</span>
-            <span style={{ color: "#B8A89A" }}>
-              {BUSINESS.rating} Stars · {BUSINESS.reviewCount} Reviews
-            </span>
+          <div style={{ color: "#B8A89A" }}>
+            Work Done Right. Work Done Proud.
           </div>
           <div style={{ color: "#B8A89A" }}>
-            Satisfaction Guaranteed
-          </div>
-          <div style={{ color: "#B8A89A" }}>
-            Background-Checked Pros
+            {BUSINESS.rating} Stars · Satisfaction Guaranteed
           </div>
         </div>
       </div>
