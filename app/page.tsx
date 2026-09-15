@@ -230,6 +230,81 @@ export default function HomePage() {
             </p>
           </div>
 
+          {/* ── FEATURED MODERN OUTDOOR TRANSFORMATIONS & CONSTRUCTION SHOWCASE ── */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
+            {/* Project 1: Cedar ADU with Rooftop Deck */}
+            <div className="group rounded-3xl overflow-hidden bg-white border border-[#D8C4A8]/60 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+              <div className="relative aspect-[16/10] overflow-hidden bg-black/10">
+                <img
+                  src="/projects/custom-adu-cedar-rooftop-deck.jpg"
+                  alt="Modern cedar backyard studio and ADU with spiral staircase, rooftop deck, and custom outdoor landscaping"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4 bg-black/75 backdrop-blur-md text-white text-xs font-bold px-3.5 py-1.5 rounded-full border border-white/20 flex items-center gap-1.5 shadow-lg">
+                  <span className="w-2 h-2 rounded-full bg-rust" />
+                  <span>Custom Backyard Studio &amp; ADU</span>
+                </div>
+              </div>
+              <div className="p-6 sm:p-7">
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-rust bg-rust/10 px-2.5 py-0.5 rounded-full">
+                    Construction &amp; Hardscaping
+                  </span>
+                  <span className="text-xs text-[#6B5E52] font-semibold">Palm Springs / Coachella Valley</span>
+                </div>
+                <h3 className="font-heading font-black text-xl sm:text-2xl text-espresso mb-2">
+                  Cedar Backyard Studio with Rooftop Viewing Deck
+                </h3>
+                <p className="text-sm text-[#6B5E52] leading-relaxed mb-4">
+                  Turnkey outdoor build: architectural vertical cedar cladding, precision spiral metal staircase, illuminated rooftop lounge with cable railing, ground-level lighted porch, and drought-tolerant paver landscaping.
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs font-semibold text-espresso">
+                  <span className="bg-cream px-2.5 py-1 rounded-md border border-tan/40">✓ Spiral Metal Staircase</span>
+                  <span className="bg-cream px-2.5 py-1 rounded-md border border-tan/40">✓ Cable Railing Rooftop Deck</span>
+                  <span className="bg-cream px-2.5 py-1 rounded-md border border-tan/40">✓ Integrated Exterior Lighting</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2: Standing-Seam Black ADU with Fire Lounge */}
+            <div className="group rounded-3xl overflow-hidden bg-white border border-[#D8C4A8]/60 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+              <div className="relative aspect-[16/10] overflow-hidden bg-black/10">
+                <img
+                  src="/projects/custom-adu-modern-black-rooftop-lounge.jpg"
+                  alt="Modern standing-seam black and cedar ADU with rooftop fire pit lounge and evening bistro lighting"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4 bg-black/75 backdrop-blur-md text-white text-xs font-bold px-3.5 py-1.5 rounded-full border border-white/20 flex items-center gap-1.5 shadow-lg">
+                  <span className="w-2 h-2 rounded-full bg-rust" />
+                  <span>Modern Outdoor Transformation</span>
+                </div>
+              </div>
+              <div className="p-6 sm:p-7">
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-rust bg-rust/10 px-2.5 py-0.5 rounded-full">
+                    Master Construction &amp; ADU
+                  </span>
+                  <span className="text-xs text-[#6B5E52] font-semibold">Temecula / Murrieta</span>
+                </div>
+                <h3 className="font-heading font-black text-xl sm:text-2xl text-espresso mb-2">
+                  Modern Standing-Seam ADU with Rooftop Fire Lounge
+                </h3>
+                <p className="text-sm text-[#6B5E52] leading-relaxed mb-4">
+                  Contemporary residential transformation: matte black standing-seam paneling, warm cedar window framing, rooftop lounge deck with gas fire table, gravel yard borders, and ambient twilight bistro string lighting.
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs font-semibold text-espresso">
+                  <span className="bg-cream px-2.5 py-1 rounded-md border border-tan/40">✓ Standing-Seam Cladding</span>
+                  <span className="bg-cream px-2.5 py-1 rounded-md border border-tan/40">✓ Rooftop Fire Pit Lounge</span>
+                  <span className="bg-cream px-2.5 py-1 rounded-md border border-tan/40">✓ Custom Paver Walkways</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1: Concrete Block Walls */}
             <div className="card p-8 flex flex-col justify-between border-2 hover:border-rust transition-all duration-300 shadow-md hover:shadow-xl bg-cream/30">

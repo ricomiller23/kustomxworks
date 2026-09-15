@@ -92,6 +92,38 @@ const masterProjects: MasterProject[] = [
       features: "Warm perimeter halo lighting, integrated low-voltage power supply, complete wire management",
     },
   },
+  {
+    id: "custom-adu-cedar-rooftop-deck",
+    title: "Cedar Backyard Studio with Spiral Stair & Rooftop Deck",
+    category: "Master Construction & Outdoor Living",
+    location: "Palm Springs, CA",
+    image: "/projects/custom-adu-cedar-rooftop-deck.jpg",
+    alt: "Modern cedar backyard studio and ADU with spiral staircase, rooftop viewing deck, and custom outdoor landscaping",
+    description:
+      "Architectural detached guest suite and creative studio featuring vertical cedar siding, heavy-duty exterior spiral staircase leading to an open-air rooftop deck with cable railings, integrated deck step lighting, sliding glass wall, and full desert-scape gravel and stone paving.",
+    highlights: ["Vertical Cedar Cladding", "Spiral Metal Staircase & Rooftop Deck", "Drought-Tolerant Hardscaping"],
+    specs: {
+      materials: "Western Red Cedar cladding, structural steel staircase, stainless cable railing, LED step luminaires",
+      timeline: "Full turnkey build: 3-4 weeks",
+      features: "Integrated rooftop lounge, high-efficiency sliding glass, dimmable architectural exterior lighting",
+    },
+  },
+  {
+    id: "custom-adu-modern-black-rooftop-lounge",
+    title: "Standing-Seam Modern ADU with Rooftop Fire Lounge",
+    category: "Modern Outdoor Transformations & ADUs",
+    location: "Temecula, CA",
+    image: "/projects/custom-adu-modern-black-rooftop-lounge.jpg",
+    alt: "Modern standing-seam black and cedar ADU with rooftop fire pit lounge and evening bistro lighting",
+    description:
+      "Contemporary two-tier guest house and ADU featuring matte black standing-seam metal cladding paired with rich natural cedar accents, rooftop terrace with built-in gas fire table and horizontal privacy slats, perimeter gravel yard, and ambient evening bistro lighting.",
+    highlights: ["Matte Black Standing-Seam Siding", "Rooftop Fire Table Terrace", "Integrated Porch & Landscape Lighting"],
+    specs: {
+      materials: "Standing-seam architectural metal, cedar millwork, composite roof decking, gas fire fixture",
+      timeline: "Turnkey residential build: 3-5 weeks",
+      features: "Rooftop privacy screening, weather-rated outdoor electrical, decomposed granite gravel borders",
+    },
+  },
 ];
 
 const generalProjects = [
