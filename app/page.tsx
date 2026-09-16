@@ -7,7 +7,6 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { ServiceCard } from "@/components/ServiceCard";
 import { CityCard } from "@/components/CityCard";
 import { OfferCard } from "@/components/OfferCard";
-import { TestimonialCard } from "@/components/TestimonialCard";
 import { CTABand } from "@/components/CTABand";
 import { LeadForm } from "@/components/LeadForm";
 import { ServiceAreaMap } from "@/components/ServiceAreaMap";
@@ -50,12 +49,6 @@ const localBusinessSchema = {
     "@type": "PostalAddress",
     addressRegion: "CA",
     addressCountry: "US",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: BUSINESS.rating,
-    reviewCount: BUSINESS.reviewCount,
-    bestRating: "5",
   },
 };
 
@@ -705,29 +698,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
-      <section className="section bg-cream" aria-labelledby="reviews-heading">
-        <div className="container-site">
-          <div className="text-center mb-12">
-            <h2 id="reviews-heading" className="font-heading font-black text-3xl md:text-4xl text-espresso mb-3">
-              What Our Customers Say
-            </h2>
-            <p className="text-[#6B5E52]">
-              {BUSINESS.rating} stars · {BUSINESS.reviewCount} reviews across Google and more
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {BUSINESS.testimonials.map((t) => (
-              <TestimonialCard key={t.id} testimonial={t} />
-            ))}
-          </div>
-          <div className="text-center">
-            <Link href="/reviews" className="btn-outline">
-              Read All Reviews →
-            </Link>
-          </div>
-        </div>
-      </section>
+
 
       {/* ── CITY GRID ── */}
       <section className="section bg-white" aria-labelledby="cities-heading">

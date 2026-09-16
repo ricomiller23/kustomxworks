@@ -126,53 +126,7 @@ export const BUSINESS = {
     },
   ],
 
-  // ── Testimonials (replace tokens with real quotes before launch) ──────────
-  testimonials: [
-    {
-      id: 1,
-      quote: "{{TESTIMONIAL_1_QUOTE}}",
-      name: "{{TESTIMONIAL_1_NAME}}",
-      city: "{{TESTIMONIAL_1_CITY}}",
-      rating: 5,
-    },
-    {
-      id: 2,
-      quote: "{{TESTIMONIAL_2_QUOTE}}",
-      name: "{{TESTIMONIAL_2_NAME}}",
-      city: "{{TESTIMONIAL_2_CITY}}",
-      rating: 5,
-    },
-    {
-      id: 3,
-      quote: "{{TESTIMONIAL_3_QUOTE}}",
-      name: "{{TESTIMONIAL_3_NAME}}",
-      city: "{{TESTIMONIAL_3_CITY}}",
-      rating: 5,
-    },
-    {
-      id: 4,
-      quote: "{{TESTIMONIAL_4_QUOTE}}",
-      name: "{{TESTIMONIAL_4_NAME}}",
-      city: "{{TESTIMONIAL_4_CITY}}",
-      rating: 5,
-    },
-    {
-      id: 5,
-      quote: "{{TESTIMONIAL_5_QUOTE}}",
-      name: "{{TESTIMONIAL_5_NAME}}",
-      city: "{{TESTIMONIAL_5_CITY}}",
-      rating: 5,
-    },
-    {
-      id: 6,
-      quote: "{{TESTIMONIAL_6_QUOTE}}",
-      name: "{{TESTIMONIAL_6_NAME}}",
-      city: "{{TESTIMONIAL_6_CITY}}",
-      rating: 5,
-    },
-  ],
 } as const;
 
 export type TrustPoint = (typeof BUSINESS.trustPoints)[number];
 export type Offer = (typeof BUSINESS.offers)[number];
-export type Testimonial = (typeof BUSINESS.testimonials)[number];

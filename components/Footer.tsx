@@ -70,7 +70,6 @@ export function Footer() {
                 { label: "Book Online", href: "/book" },
                 { label: "Pricing", href: "/pricing" },
                 { label: "Gallery", href: "/gallery" },
-                { label: "Reviews", href: "/reviews" },
                 { label: "About Us", href: "/about" },
                 { label: "Blog", href: "/blog" },
                 { label: "Contact", href: "/contact" },
@@ -156,7 +155,7 @@ export function Footer() {
             Work Done Right. Work Done Proud.
           </div>
           <div style={{ color: "#B8A89A" }}>
-            {BUSINESS.rating} Stars · Satisfaction Guaranteed
+            100% Satisfaction Guaranteed
           </div>
         </div>
       </div>

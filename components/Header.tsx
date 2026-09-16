@@ -12,7 +12,6 @@ const NAV_LINKS = [
   { label: "Service Areas", href: "/handyman", hasDropdown: true },
   { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
-  { label: "Reviews", href: "/reviews" },
   { label: "Contact", href: "/contact" },
 ];
 

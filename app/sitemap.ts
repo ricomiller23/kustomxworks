@@ -17,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/services/military`, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `${base}/about`, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${base}/gallery`, changeFrequency: "weekly" as const, priority: 0.7 },
-    { url: `${base}/reviews`, changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${base}/pricing`, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${base}/contact`, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${base}/blog`, changeFrequency: "weekly" as const, priority: 0.6 },

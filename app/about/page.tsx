@@ -83,7 +83,7 @@ export default function AboutPage() {
                   { number: BUSINESS.yearsInBusiness, label: "Years in Business" },
                   { number: BUSINESS.cityCount.toString(), label: "Cities Served" },
                   { number: BUSINESS.customersServed, label: "Customers Served" },
-                  { number: `${BUSINESS.rating}★`, label: "Average Rating" },
+                  { number: "100%", label: "Satisfaction Guaranteed" },
                 ].map((stat) => (
                   <div key={stat.label} className="card p-5 text-center">
                     <div className="font-heading font-black text-3xl text-rust mb-1">{stat.number}</div>
