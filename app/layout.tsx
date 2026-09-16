@@ -77,8 +77,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        {/* GA4 / GTM placeholder */}
-        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> */}
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18455545576"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag("js", new Date());
+              gtag("config", "AW-18455545576");
+            `,
+          }}
+        />
       </head>
       <body className="font-body bg-cream">
         <AttributionTracker />
