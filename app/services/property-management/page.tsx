@@ -14,14 +14,14 @@ export const metadata: Metadata = {
 };
 
 const menuItems = [
-  { service: "Drywall Patch (single small)", price: "{{PRICE_DRYWALL_SM}}" },
-  { service: "Drywall Patch (8\"×8\" area)", price: "{{PRICE_DRYWALL_LG}}" },
-  { service: "Interior Door Hardware Replace", price: "{{PRICE_DOOR_HW}}" },
-  { service: "Toilet Repair (flapper/fill valve)", price: "{{PRICE_TOILET}}" },
-  { service: "GFCI Outlet Replace", price: "{{PRICE_GFCI}}" },
-  { service: "Caulk Tub/Shower (re-caulk)", price: "{{PRICE_CAULK}}" },
-  { service: "Lock Re-key (per lock)", price: "{{PRICE_REKEY}}" },
-  { service: "Interior Paint Touch-Up (per room)", price: "{{PRICE_PAINT}}" },
+  { service: "Drywall Patch (single small)", price: "$95 – $145" },
+  { service: "Drywall Patch (8\"×8\" area)", price: "$145 – $195" },
+  { service: "Interior Door Hardware Replace", price: "$65 – $95" },
+  { service: "Toilet Repair (flapper/fill valve)", price: "$95 – $145" },
+  { service: "GFCI Outlet Replace", price: "$95 – $135" },
+  { service: "Caulk Tub/Shower (re-caulk)", price: "$85 – $125" },
+  { service: "Lock Re-key (per lock)", price: "$65 – $95" },
+  { service: "Interior Paint Touch-Up (per room)", price: "$185 – $285" },
 ];
 
 const faqs = [

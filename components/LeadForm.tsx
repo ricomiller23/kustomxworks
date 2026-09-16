@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BUSINESS } from "@/content/business";
 import { CITIES } from "@/content/cities";
 import { SERVICE_NAMES } from "@/content/services";
+import { getAttributionPayload } from "@/lib/attribution";
 import { CheckCircleIcon, PhoneIcon } from "lucide-react";
 
 interface LeadFormProps {
@@ -22,6 +23,8 @@ interface FormData {
   service: string;
   details: string;
   bestTime: string;
+  phoneOptIn: boolean;
+  emailOptIn: boolean;
 }
 
 interface FormErrors {
@@ -43,46 +46,55 @@ export function LeadForm({
     service: preselectedService,
     details: "",
     bestTime: "",
+    phoneOptIn: false,
+    emailOptIn: false,
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
 
-  function validate(): FormErrors {
+  function validate(): boolean {
     const errs: FormErrors = {};
-    if (!formData.name.trim()) errs.name = "Name is required";
-    if (!formData.phone.trim()) errs.phone = "Phone is required";
-    else if (!/^[\d\s\-().+]{7,}$/.test(formData.phone))
-      errs.phone = "Enter a valid phone number";
-    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
-      errs.email = "Enter a valid email address";
+    if (!formData.name.trim()) errs.name = "Your name is required";
+    if (!formData.phone.trim()) {
+      errs.phone = "Phone number is required";
+    } else if (!/^[\d\s().+-]{7,}$/.test(formData.phone.trim())) {
+      errs.phone = "Please enter a valid phone number";
+    }
+    if (formData.email && !/^[\S]+@[\S]+\.[\S]+$/.test(formData.email.trim())) {
+      errs.email = "Please enter a valid email address";
+    }
     if (!formData.city) errs.city = "Please select your city";
     if (!formData.service) errs.service = "Please select a service";
-    return errs;
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const errs = validate();
-    if (Object.keys(errs).length > 0) {
-      setErrors(errs);
-      return;
-    }
-    setErrors({});
+    if (!validate()) return;
     setSubmitting(true);
     setSubmitError("");
 
     try {
+      const attribution = getAttributionPayload();
+      const payload = {
+        ...formData,
+        source: "lead-form",
+        attribution,
+      };
+
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
       if (res.ok) {
         setSubmitted(true);
       } else {
-        throw new Error("Server error");
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Server error");
       }
     } catch {
       // Fallback mailto if API fails
@@ -102,8 +114,12 @@ export function LeadForm({
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   }
 
@@ -171,7 +187,7 @@ export function LeadForm({
               value={formData.phone}
               onChange={handleChange}
               className={`form-input ${errors.phone ? "border-red-400" : ""}`}
-              placeholder="(951) 555-0000"
+              placeholder="(951) 325-4248"
             />
             {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
           </div>
@@ -265,6 +281,34 @@ export function LeadForm({
               <option value="Afternoon (12PM–5PM)">Afternoon (12PM–5PM)</option>
               <option value="Evening (5PM–7PM)">Evening (5PM–7PM)</option>
             </select>
+          </div>
+
+          {/* TCPA & CAN-SPAM Consent Checkboxes */}
+          <div className="sm:col-span-2 pt-3 border-t border-tan space-y-3">
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="phoneOptIn"
+                checked={formData.phoneOptIn}
+                onChange={handleChange}
+                className="mt-1 h-4 w-4 rounded border-tan text-rust focus:ring-rust"
+              />
+              <span className="text-xs text-[#6B5E52] leading-relaxed">
+                By checking this box, I agree to receive text messages and/or phone calls from KustomXworks regarding my inquiry at the phone number provided above. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Reply STOP to cancel.
+              </span>
+            </label>
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="emailOptIn"
+                checked={formData.emailOptIn}
+                onChange={handleChange}
+                className="mt-1 h-4 w-4 rounded border-tan text-rust focus:ring-rust"
+              />
+              <span className="text-xs text-[#6B5E52] leading-relaxed">
+                I agree to receive email updates, project quotes, and communications from KustomXworks regarding my project inquiry.
+              </span>
+            </label>
           </div>
         </div>
 

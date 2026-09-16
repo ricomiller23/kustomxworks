@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BUSINESS } from "@/content/business";
 import { CITIES } from "@/content/cities";
 import { SERVICE_CATEGORIES } from "@/content/services";
-import { PhoneIcon, MailIcon, ClockIcon, ShieldCheckIcon, MapPinIcon } from "lucide-react";
+import { PhoneIcon, MailIcon, ClockIcon, ShieldCheckIcon, MapPinIcon, LockIcon } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -33,6 +33,10 @@ export function Footer() {
               American Craft. American Grit. Serving {BUSINESS.cityCount} cities across the Inland Empire &amp; Coachella Valley with master construction expertise, concrete block walls, custom landscaping, and flat-rate handyman services.
             </p>
             <div className="space-y-3">
+              <div className="flex items-start gap-2 text-sm" style={{ color: "#EDE6DC" }}>
+                <MapPinIcon size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#C1502E" }} aria-hidden="true" />
+                <span>{BUSINESS.fullAddress}</span>
+              </div>
               <a
                 href={`tel:${BUSINESS.phoneRaw}`}
                 className="flex items-center gap-2 text-sm font-bold hover:text-rust transition-colors"
@@ -136,27 +140,34 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Trust row */}
+      {/* Trust & Legal Compliance row */}
       <div className="border-t py-6" style={{ borderColor: "#3D3028" }}>
-        <div className="container-site flex flex-wrap items-center justify-center gap-6 text-sm">
-          <div className="flex items-center gap-2">
-            <span className="text-base">🇺🇸</span>
-            <span style={{ color: "#EDE6DC" }} className="font-semibold">
-              Quality Work With American Pride · Professional Work. Patriotic Values.
-            </span>
+        <div className="container-site space-y-3 text-sm">
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <div className="flex items-center gap-2">
+              <span className="text-base">🇺🇸</span>
+              <span style={{ color: "#EDE6DC" }} className="font-semibold">
+                Quality Work With American Pride · Professional Work. Patriotic Values.
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheckIcon size={16} style={{ color: "#C1502E" }} aria-hidden="true" />
+              <span style={{ color: "#B8A89A" }}>
+                Concrete Block Walls, Landscaping &amp; Construction Expertise
+              </span>
+            </div>
+            <div style={{ color: "#B8A89A" }}>
+              Work Done Right. Work Done Proud.
+            </div>
+            <div style={{ color: "#B8A89A" }}>
+              100% Satisfaction Guaranteed
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <ShieldCheckIcon size={16} style={{ color: "#C1502E" }} aria-hidden="true" />
-            <span style={{ color: "#B8A89A" }}>
-              Concrete Block Walls, Landscaping &amp; Construction Expertise
-            </span>
-          </div>
-          <div style={{ color: "#B8A89A" }}>
-            Work Done Right. Work Done Proud.
-          </div>
-          <div style={{ color: "#B8A89A" }}>
-            100% Satisfaction Guaranteed
-          </div>
+
+          {/* California B&P § 7048 Statutory Disclosure */}
+          <p className="text-center text-xs leading-relaxed max-w-4xl mx-auto pt-2" style={{ color: "#8E7F72" }}>
+            California Business &amp; Professions Code § 7048 Notice: KustomXworks specializes in handyman maintenance, minor property repairs, and installations under $500 in combined labor and materials. For major structural construction projects requiring a specialty or general contractor license, projects are executed in coordination with or subcontracted to licensed California contractors.
+          </p>
         </div>
       </div>
 
@@ -164,10 +175,14 @@ export function Footer() {
       <div className="border-t py-5" style={{ borderColor: "#3D3028" }}>
         <div className="container-site flex flex-col sm:flex-row items-center justify-between gap-3 text-xs" style={{ color: "#6B5E52" }}>
           <p>© {currentYear} {BUSINESS.name}. All rights reserved.</p>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-rust transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-rust transition-colors">Terms of Service</Link>
             <Link href="/sitemap.xml" className="hover:text-rust transition-colors">Sitemap</Link>
+            <Link href="/leads/login" className="hover:text-rust transition-colors flex items-center gap-1 opacity-70 hover:opacity-100">
+              <LockIcon size={11} aria-hidden="true" />
+              CRM Portal
+            </Link>
           </div>
         </div>
       </div>

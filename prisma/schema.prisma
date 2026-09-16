@@ -1,0 +1,83 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Lead {
+  id            String      @id @default(cuid())
+  name          String
+  phone         String
+  email         String?
+  city          String
+  service       String
+  details       String?
+  bestTime      String?
+  propertyType  String?
+  preferredDate String?
+  preferredTime String?
+  status        String      @default("NEW")
+  score         Int         @default(50)
+  source        String      @default("website")
+  notes         String?
+  value         Float?
+  
+  // Ad Attribution (Task D)
+  gclid         String?
+  fbclid        String?
+  msclkid       String?
+  utmSource     String?
+  utmMedium     String?
+  utmCampaign   String?
+  utmTerm       String?
+  utmContent    String?
+  landingPage   String?
+  referrer      String?
+  firstSeenAt   DateTime?
+  
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  consents      Consent[]
+  activities    Activity[]
+  emailSends    EmailSend[]
+}
+
+model Consent {
+  id            String    @id @default(cuid())
+  leadId        String?
+  type          String    @default("BOTH")
+  emailOptIn    Boolean   @default(false)
+  phoneOptIn    Boolean   @default(false)
+  ip            String?
+  userAgent     String?
+  disclosure    String?
+  createdAt     DateTime  @default(now())
+
+  lead          Lead?     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+}
+
+model Activity {
+  id          String   @id @default(cuid())
+  leadId      String
+  type        String
+  description String
+  createdAt   DateTime @default(now())
+
+  lead        Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+}
+
+model EmailSend {
+  id        String   @id @default(cuid())
+  leadId    String
+  to        String
+  type      String
+  subject   String
+  status    String   @default("SENT")
+  sentAt    DateTime @default(now())
+
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+}

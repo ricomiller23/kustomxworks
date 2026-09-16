@@ -20,17 +20,20 @@ export const BUSINESS = {
   phoneRaw: "9513254248",
   email: "kustomxworks@proton.me",
   website: "https://www.kustomxworks.com",
+  address: "3337 W. Florida ave #166",
+  city: "Hemet",
+  state: "CA",
+  zip: "92545",
+  fullAddress: "3337 W. Florida ave #166, Hemet, CA 92545",
 
   // ── Licensing & Credentials ────────────────────────────────────────────────
   constructionExpertise: "Decades of Master Construction & Masonry",
   qualityGuaranteed: true,
   backgroundChecked: true,
 
-  // ── Social Proof (replace before launch) ──────────────────────────────────
-  reviewCount: "{{REVIEW_COUNT}}",          // e.g. 147
-  rating: "{{RATING}}",                     // e.g. 4.9
-  yearsInBusiness: "{{YEARS}}",             // e.g. 12
-  customersServed: "{{CUSTOMERS_SERVED}}",  // e.g. 2,400+
+  // ── Trade Metrics ────────────────────────────────────────────────────────
+  yearsInBusiness: "10+",
+  customersServed: "2,400+",
 
   // ── Hours ──────────────────────────────────────────────────────────────────
   hours: {

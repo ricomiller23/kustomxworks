@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BUSINESS } from "@/content/business";
 import { CITIES } from "@/content/cities";
 import { SERVICE_NAMES } from "@/content/services";
+import { getAttributionPayload } from "@/lib/attribution";
 import {
   CheckCircleIcon,
   ClipboardListIcon,
@@ -45,28 +46,34 @@ export function BookingWizard() {
     phone: "",
     email: "",
     bestTime: "",
+    phoneOptIn: false,
+    emailOptIn: false,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  function update(key: string, value: string) {
-    setForm((f) => ({ ...f, [key]: value }));
-    setErrors((e) => ({ ...e, [key]: "" }));
+  function update(field: string, val: any) {
+    setForm((f) => ({ ...f, [field]: val }));
+    if (errors[field]) setErrors((e) => ({ ...e, [field]: "" }));
   }
 
-  function validateStep(s: number): Record<string, string> {
+  function validateStep(s: number) {
     const errs: Record<string, string> = {};
     if (s === 1) {
-      if (!form.city) errs.city = "Select a city";
-      if (!form.service) errs.service = "Select a service";
+      if (!form.city) errs.city = "Please select a city";
+      if (!form.service) errs.service = "Please select a service";
     }
     if (s === 2) {
-      if (!form.preferredDate) errs.preferredDate = "Pick a date";
+      if (!form.preferredDate) errs.preferredDate = "Please choose a date";
     }
     if (s === 3) {
-      if (!form.name.trim()) errs.name = "Name is required";
-      if (!form.phone.trim()) errs.phone = "Phone is required";
+      if (!form.name.trim()) errs.name = "Your name is required";
+      if (!form.phone.trim()) {
+        errs.phone = "Your phone number is required";
+      } else if (!/^[\d\s().+-]{7,}$/.test(form.phone.trim())) {
+        errs.phone = "Please enter a valid phone number";
+      }
     }
     return errs;
   }
@@ -87,11 +94,18 @@ export function BookingWizard() {
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setSubmitting(true);
     try {
+      const attribution = getAttributionPayload();
       await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, source: "booking-wizard" }),
+        body: JSON.stringify({
+          ...form,
+          source: "booking-wizard",
+          attribution,
+        }),
       });
+    } catch (e) {
+      console.error("Failed to submit booking lead:", e);
     } finally {
       setSubmitting(false);
       setSubmitted(true);
@@ -143,35 +157,39 @@ export function BookingWizard() {
           <div className="card p-6 md:p-8 space-y-5 animate-fade-up">
             <h2 className="font-heading font-black text-2xl text-espresso">Step 1: Service Details</h2>
             <div>
-              <label htmlFor="wiz-city" className="form-label">City <span className="text-rust">*</span></label>
+              <label htmlFor="wiz-city" className="form-label">Select Your City <span className="text-rust">*</span></label>
               <select id="wiz-city" value={form.city} onChange={(e) => update("city", e.target.value)} className={`form-input ${errors.city ? "border-red-400" : ""}`}>
-                <option value="">Select your city…</option>
-                {CITIES.map((c) => <option key={c.slug} value={c.name}>{c.name}, {c.state}</option>)}
+                <option value="">Choose a city…</option>
+                {CITIES.map((c) => (
+                  <option key={c.slug} value={c.name}>{c.name}, {c.state}</option>
+                ))}
               </select>
               {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
             </div>
             <div>
-              <label htmlFor="wiz-service" className="form-label">Service Type <span className="text-rust">*</span></label>
+              <label htmlFor="wiz-service" className="form-label">Service Needed <span className="text-rust">*</span></label>
               <select id="wiz-service" value={form.service} onChange={(e) => update("service", e.target.value)} className={`form-input ${errors.service ? "border-red-400" : ""}`}>
-                <option value="">Select a service…</option>
-                {SERVICE_NAMES.map((n) => <option key={n} value={n}>{n}</option>)}
+                <option value="">Choose a service…</option>
+                {SERVICE_NAMES.map((n) => (
+                  <option key={n} value={n}>{n}</option>
+                ))}
               </select>
               {errors.service && <p className="text-red-500 text-xs mt-1">{errors.service}</p>}
             </div>
             <div>
-              <label htmlFor="wiz-details" className="form-label">Describe Your Project</label>
-              <textarea id="wiz-details" rows={3} value={form.details} onChange={(e) => update("details", e.target.value)} className="form-input resize-none" placeholder="Tell us what you need done…" />
-            </div>
-            <div>
               <label htmlFor="wiz-property" className="form-label">Property Type</label>
               <select id="wiz-property" value={form.propertyType} onChange={(e) => update("propertyType", e.target.value)} className="form-input">
-                <option value="">Select…</option>
-                {PROPERTY_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
+                <option value="">Select type…</option>
+                {PROPERTY_TYPES.map((p) => (
+                  <option key={p} value={p}>{p}</option>
+                ))}
               </select>
             </div>
-            <button onClick={next} className="btn-rust w-full sm:w-auto justify-center">
-              Next: Date &amp; Time →
-            </button>
+            <div>
+              <label htmlFor="wiz-details" className="form-label">Project Notes &amp; Special Requests</label>
+              <textarea id="wiz-details" rows={3} value={form.details} onChange={(e) => update("details", e.target.value)} className="form-input resize-none" placeholder="Tell us about the project — scope, measurements, urgency…" />
+            </div>
+            <button onClick={next} className="btn-rust w-full sm:w-auto">Next: Choose Date &amp; Time →</button>
           </div>
         )}
 
@@ -222,11 +240,11 @@ export function BookingWizard() {
               </div>
               <div>
                 <label htmlFor="wiz-phone" className="form-label">Phone <span className="text-rust">*</span></label>
-                <input id="wiz-phone" type="tel" autoComplete="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className={`form-input ${errors.phone ? "border-red-400" : ""}`} placeholder="(951) 555-0000" />
+                <input id="wiz-phone" type="tel" autoComplete="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className={`form-input ${errors.phone ? "border-red-400" : ""}`} placeholder="(951) 325-4248" />
                 {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="wiz-email" className="form-label">Email</label>
+                <label htmlFor="wiz-email" className="form-label">Email Address</label>
                 <input id="wiz-email" type="email" autoComplete="email" value={form.email} onChange={(e) => update("email", e.target.value)} className="form-input" placeholder="jane@example.com" />
               </div>
               <div className="sm:col-span-2">
@@ -238,8 +256,36 @@ export function BookingWizard() {
                   <option value="Evening">Evening (5PM–7PM)</option>
                 </select>
               </div>
+
+              {/* TCPA & CAN-SPAM Consent Checkboxes */}
+              <div className="sm:col-span-2 pt-3 border-t border-tan space-y-3">
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="phoneOptIn"
+                    checked={form.phoneOptIn}
+                    onChange={(e) => update("phoneOptIn", e.target.checked)}
+                    className="mt-1 h-4 w-4 rounded border-tan text-rust focus:ring-rust"
+                  />
+                  <span className="text-xs text-[#6B5E52] leading-relaxed">
+                    By checking this box, I agree to receive text messages and/or phone calls from KustomXworks regarding my inquiry at the phone number provided above. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Reply STOP to cancel.
+                  </span>
+                </label>
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="emailOptIn"
+                    checked={form.emailOptIn}
+                    onChange={(e) => update("emailOptIn", e.target.checked)}
+                    className="mt-1 h-4 w-4 rounded border-tan text-rust focus:ring-rust"
+                  />
+                  <span className="text-xs text-[#6B5E52] leading-relaxed">
+                    I agree to receive email updates, detailed project estimates, and communication from KustomXworks regarding my project inquiry.
+                  </span>
+                </label>
+              </div>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-3 pt-2">
               <button onClick={back} className="btn-outline">← Back</button>
               <button onClick={handleSubmit} disabled={submitting} className="btn-rust disabled:opacity-60">
                 {submitting ? "Booking…" : "Confirm Booking →"}
@@ -259,29 +305,51 @@ export function BookingWizard() {
               Thanks, <strong>{form.name}</strong>! We&apos;ve received your request for{" "}
               <strong>{form.service}</strong> in <strong>{form.city}</strong>.
             </p>
-            <p className="text-[#6B5E52] mb-6">
-              We&apos;ll call you at <strong>{form.phone}</strong> to confirm your appointment. For urgent needs:
+            <p className="text-sm text-[#6B5E52] mb-6">
+              Our team will review your requested slot (<strong>{form.preferredDate} {form.preferredTime}</strong>) and contact you shortly to finalize details.
             </p>
-            <a href={`tel:${BUSINESS.phoneRaw}`} className="btn-rust inline-flex mx-auto">
-              Call Now — {BUSINESS.phone}
-            </a>
+            <div className="bg-sand p-4 rounded-xl max-w-sm mx-auto mb-6 text-left text-sm space-y-1">
+              <div><strong>Name:</strong> {form.name}</div>
+              <div><strong>Phone:</strong> {form.phone}</div>
+              {form.email && <div><strong>Email:</strong> {form.email}</div>}
+              <div><strong>City:</strong> {form.city}</div>
+              <div><strong>Service:</strong> {form.service}</div>
+              {form.propertyType && <div><strong>Property:</strong> {form.propertyType}</div>}
+            </div>
+            <p className="text-sm text-[#6B5E52]">
+              Need immediate assistance? Call us directly:{" "}
+              <a href={`tel:${BUSINESS.phoneRaw}`} className="font-bold text-rust">
+                {BUSINESS.phone}
+              </a>
+            </p>
           </div>
         )}
       </div>
 
-      {/* Trust cards rail */}
+      {/* Sidebar trust cards */}
       <div className="space-y-4">
-        {TRUST_CARDS.map((card) => (
-          <div key={card.title} className="card p-5 flex gap-4">
+        {TRUST_CARDS.map((c) => (
+          <div key={c.title} className="card p-5 flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#D8C4A8" }}>
-              <span className="text-rust">{card.icon}</span>
+              <span className="text-espresso">{c.icon}</span>
             </div>
             <div>
-              <h3 className="font-heading font-bold text-espresso text-sm mb-1">{card.title}</h3>
-              <p className="text-xs text-[#6B5E52] leading-relaxed">{card.body}</p>
+              <h3 className="font-heading font-bold text-espresso text-sm mb-1">{c.title}</h3>
+              <p className="text-xs text-[#6B5E52] leading-relaxed">{c.body}</p>
             </div>
           </div>
         ))}
+        <div className="card p-5 bg-rust text-white" style={{ backgroundColor: "#C1502E" }}>
+          <h3 className="font-heading font-bold text-base mb-1">Prefer to Call?</h3>
+          <p className="text-xs text-orange-100 mb-3">Speak directly with our team for quick quotes or emergency bookings.</p>
+          <a
+            href={`tel:${BUSINESS.phoneRaw}`}
+            className="block text-center font-bold py-2.5 px-4 bg-white text-rust rounded-lg text-sm hover:bg-sand transition-colors"
+            style={{ color: "#C1502E" }}
+          >
+            Call {BUSINESS.phone}
+          </a>
+        </div>
       </div>
     </div>
   );

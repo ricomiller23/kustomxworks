@@ -6,7 +6,7 @@ import { CTABand } from "@/components/CTABand";
 export const metadata: Metadata = {
   title: "Transparent Pricing | KustomXworks Handyman",
   description:
-    "Flat-rate handyman pricing with no surprises. Sample service price menu for the Inland Empire & Coachella Valley. Free estimates always available.",
+    "Flat-rate handyman pricing with no surprises. Representative service pricing for the Inland Empire & Coachella Valley. Free estimates always available.",
   alternates: { canonical: `${BUSINESS.website}/pricing` },
 };
 
@@ -14,44 +14,45 @@ const priceGroups = [
   {
     category: "Drywall & Paint",
     items: [
-      { service: "Small hole patch (doorknob size)", price: "{{PRICE_DRYWALL_SM}}", note: "Sample" },
-      { service: "Medium hole patch (up to 8\")", price: "{{PRICE_DRYWALL_MD}}", note: "Sample" },
-      { service: "Large hole patch (up to 16\")", price: "{{PRICE_DRYWALL_LG}}", note: "Sample" },
-      { service: "Interior room painting (standard)", price: "{{PRICE_PAINT_ROOM}}", note: "Sample" },
+      { service: "Small hole patch (doorknob size)", price: "$95 – $145", note: "Typical" },
+      { service: "Medium hole patch (up to 8\")", price: "$145 – $195", note: "Typical" },
+      { service: "Large hole patch (up to 16\")", price: "$195 – $295", note: "Typical" },
+      { service: "Interior room painting (standard)", price: "Custom Quote", note: "Free Estimate" },
     ],
   },
   {
     category: "Plumbing (Minor)",
     items: [
-      { service: "Faucet replacement (parts not included)", price: "{{PRICE_FAUCET}}", note: "Sample" },
-      { service: "Toilet repair (flapper/fill valve)", price: "{{PRICE_TOILET}}", note: "Sample" },
-      { service: "Shower head replacement", price: "{{PRICE_SHOWER}}", note: "Sample" },
-      { service: "Garbage disposal install", price: "{{PRICE_DISPOSAL}}", note: "Sample" },
+      { service: "Faucet replacement (labor)", price: "$125 – $185", note: "Typical" },
+      { service: "Toilet repair (flapper/fill valve)", price: "$95 – $145", note: "Typical" },
+      { service: "Shower head replacement", price: "$75 – $115", note: "Typical" },
+      { service: "Garbage disposal install", price: "$145 – $225", note: "Typical" },
     ],
   },
   {
     category: "Electrical (Minor)",
     items: [
-      { service: "GFCI outlet install", price: "{{PRICE_GFCI}}", note: "Sample" },
-      { service: "Light fixture swap", price: "{{PRICE_FIXTURE}}", note: "Sample" },
-      { service: "Ceiling fan install (existing box)", price: "{{PRICE_FAN}}", note: "Sample" },
+      { service: "GFCI outlet install", price: "$95 – $135", note: "Typical" },
+      { service: "Light fixture swap", price: "$115 – $175", note: "Typical" },
+      { service: "Ceiling fan install (existing box)", price: "$145 – $225", note: "Typical" },
     ],
   },
   {
-    category: "Carpentry & Doors",
+    category: "Carpentry & Custom Millwork",
     items: [
-      { service: "Door adjustment/alignment", price: "{{PRICE_DOOR_ADJ}}", note: "Sample" },
-      { service: "Door hardware replacement (per door)", price: "{{PRICE_DOOR_HW}}", note: "Sample" },
-      { service: "TV mounting (flat, no wiring)", price: "{{PRICE_TV_MOUNT}}", note: "Sample" },
+      { service: "Door adjustment/alignment", price: "$85 – $125", note: "Typical" },
+      { service: "Door hardware replacement (per door)", price: "$65 – $95", note: "Typical" },
+      { service: "Flush TV mounting & cable concealment", price: "$125 – $195", note: "Typical" },
+      { service: "Custom Slat Walls & 3D Wave Walls", price: "Custom Quote", note: "Design Consult" },
     ],
   },
   {
-    category: "Aging-in-Place",
+    category: "Aging-in-Place Safety",
     items: [
-      { service: "Grab bar install (per bar)", price: "{{PRICE_GRAB_BAR}}", note: "Sample" },
-      { service: "Handrail install (per flight)", price: "{{PRICE_HANDRAIL}}", note: "Sample" },
-      { service: "Lever handle replacement (per door)", price: "{{PRICE_LEVER}}", note: "Sample" },
-      { service: "Free home safety assessment", price: "FREE", note: "" },
+      { service: "Grab bar install (per bar, blocking verified)", price: "$95 – $145", note: "Typical" },
+      { service: "Handrail install (per flight)", price: "$185 – $285", note: "Typical" },
+      { service: "Lever handle replacement (per door)", price: "$65 – $95", note: "Typical" },
+      { service: "Home safety walkthrough assessment", price: "FREE", note: "Complimentary" },
     ],
   },
 ];
@@ -73,17 +74,13 @@ export default function PricingPage() {
             Transparent Flat-Rate Pricing
           </h1>
           <p className="text-orange-100/70 text-lg max-w-2xl">
-            We believe you deserve to know what something costs before we start. The sample menu below shows our typical flat-rate pricing. Every job gets a firm written quote before work begins.
+            We believe you deserve to know what something costs before we start. The menu below shows our typical flat-rate ranges. Every job receives a firm written quote before work begins.
           </p>
         </div>
       </section>
 
       <section className="section bg-cream">
         <div className="container-site">
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8 text-sm text-amber-800">
-            <strong>Note:</strong> Prices marked &ldquo;Sample&rdquo; are representative ranges and must be confirmed before booking. Actual price depends on scope, materials, and access. Prices marked <code>{"{{PRICE_...}}"}</code> are placeholders — confirm with your actual rates and replace in <code>content/business.ts</code>.
-          </div>
-
           <div className="space-y-8">
             {priceGroups.map((group) => (
               <div key={group.category}>
@@ -104,7 +101,7 @@ export default function PricingPage() {
                           <td className="px-5 py-3 text-right font-bold text-rust whitespace-nowrap">{item.price}</td>
                           <td className="px-5 py-3 text-right hidden sm:table-cell">
                             {item.note && (
-                              <span className="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 font-semibold">
+                              <span className="text-xs px-2 py-0.5 rounded-full bg-cream text-espresso border border-tan/60 font-semibold">
                                 {item.note}
                               </span>
                             )}
@@ -120,9 +117,9 @@ export default function PricingPage() {
 
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {[
-              { title: "Free Estimates", desc: "Always free, no obligation. We'll give you a firm price before starting." },
-              { title: "No Hidden Fees", desc: "The price we quote is the price you pay. No surprises after the job." },
-              { title: "Materials Included", desc: "Most jobs include standard materials. Non-standard materials are itemized separately." },
+              { title: "Free Flat-Rate Estimates", desc: "Always free, no obligation. We give you a firm, guaranteed price before starting." },
+              { title: "No Hidden Fees", desc: "The price we quote is the price you pay. Never any surprise add-ons." },
+              { title: "Standard Materials Included", desc: "Most minor repairs include standard fasteners and adhesives. Specialty materials are itemized transparently." },
             ].map((p) => (
               <div key={p.title} className="card p-6 text-center">
                 <h3 className="font-heading font-bold text-espresso mb-2">{p.title}</h3>

@@ -6,6 +6,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCallFab } from "@/components/MobileCallFab";
 import { BUSINESS } from "@/content/business";
+import { AttributionTracker } from "@/components/AttributionTracker";
+import { TrackingScripts } from "@/components/TrackingScripts";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -79,6 +81,8 @@ export default function RootLayout({
         {/* <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> */}
       </head>
       <body className="font-body bg-cream">
+        <AttributionTracker />
+        <TrackingScripts />
         <EmergencyBar />
         <Header />
         <main>{children}</main>

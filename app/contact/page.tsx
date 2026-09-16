@@ -84,6 +84,17 @@ export default function ContactPage() {
                       <MapPinIcon size={20} className="text-rust" aria-hidden="true" />
                     </div>
                     <div>
+                      <p className="font-heading font-bold text-espresso mb-1">Office Location</p>
+                      <p className="text-sm text-[#6B5E52]">{BUSINESS.address}</p>
+                      <p className="text-sm text-[#6B5E52]">{BUSINESS.city}, {BUSINESS.state} {BUSINESS.zip}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#D8C4A8" }}>
+                      <MapPinIcon size={20} className="text-rust" aria-hidden="true" />
+                    </div>
+                    <div>
                       <p className="font-heading font-bold text-espresso mb-2">Service Areas</p>
                       <div className="flex flex-wrap gap-1.5">
                         {CITIES.map((city) => (
