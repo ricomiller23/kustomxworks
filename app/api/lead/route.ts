@@ -193,6 +193,10 @@ export async function POST(req: NextRequest) {
                 emailOptIn: !!body.emailOptIn,
                 phoneOptIn: !!body.phoneOptIn,
                 disclosure: disclosureText,
+                consentText: disclosureText,
+                consentSource: body.source || "website",
+                consentIp: ip,
+                consentAt: new Date(),
               },
             },
             // Activity log

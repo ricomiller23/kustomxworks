@@ -268,7 +268,7 @@ export function BookingWizard() {
                     className="mt-1 h-4 w-4 rounded border-tan text-rust focus:ring-rust"
                   />
                   <span className="text-xs text-[#6B5E52] leading-relaxed">
-                    By checking this box, I agree to receive text messages and/or phone calls from KustomXworks regarding my inquiry at the phone number provided above. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Reply STOP to cancel.
+                    I agree to be contacted by phone or text (SMS) about my project. Message/data rates may apply. I can opt out anytime. Consent is not a condition of purchase.
                   </span>
                 </label>
                 <label className="flex items-start gap-3 cursor-pointer">
@@ -280,7 +280,7 @@ export function BookingWizard() {
                     className="mt-1 h-4 w-4 rounded border-tan text-rust focus:ring-rust"
                   />
                   <span className="text-xs text-[#6B5E52] leading-relaxed">
-                    I agree to receive email updates, detailed project estimates, and communication from KustomXworks regarding my project inquiry.
+                    I'd like to receive occasional email updates and offers from KustomXworks. I can unsubscribe anytime.
                   </span>
                 </label>
               </div>

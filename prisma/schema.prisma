@@ -52,6 +52,10 @@ model Consent {
   type          String    @default("BOTH")
   emailOptIn    Boolean   @default(false)
   phoneOptIn    Boolean   @default(false)
+  consentText   String?
+  consentSource String?   @default("website")
+  consentIp     String?
+  consentAt     DateTime  @default(now())
   ip            String?
   userAgent     String?
   disclosure    String?
