@@ -1,7 +1,7 @@
 # Google Ads Campaign Settings Specification
 **Campaign**: `KX Search - 9-City IE`  
 **Target Domain**: https://kustomxworks.com  
-**Business Phone**: 951-391-2200 (tel:9513912200)
+**Business Phone**: 951-325-4248 (tel:9513254248)
 
 ---
 
