@@ -1,3 +1,4 @@
+import { BUSINESS, COMPANY_PHONE_DISPLAY, COMPANY_PHONE_TEL } from "@/content/business";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
@@ -116,7 +117,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: "Too many requests. Please contact us directly at (951) 325-4248.",
+          error: `Too many requests. Please contact us directly at ${COMPANY_PHONE_DISPLAY}.`,
         },
         { status: 429 }
       );
@@ -306,13 +307,13 @@ export async function POST(req: NextRequest) {
                 
                 <div style="background: #F7F1E8; padding: 16px; border-radius: 6px; margin: 20px 0;">
                   <h4 style="margin: 0 0 8px 0;">Need immediate assistance or emergency repairs?</h4>
-                  <p style="margin: 0;">Call our direct line: <a href="tel:9513254248" style="color: #C1502E; font-weight: bold;">(951) 325-4248</a></p>
+                  <p style="margin: 0;">Call our direct line: <a href="${COMPANY_PHONE_TEL}" style="color: #C1502E; font-weight: bold;">${COMPANY_PHONE_DISPLAY}</a></p>
                 </div>
 
                 <p style="font-size: 13px; color: #6B5E52; margin-top: 30px; border-top: 1px solid #E5DCD1; padding-top: 15px;">
                   <strong>KustomXworks</strong><br />
                   3337 W. Florida ave #166, Hemet, CA 92545<br />
-                  Phone: (951) 325-4248 | Email: kustomxworks@proton.me<br />
+                  Phone: ${COMPANY_PHONE_DISPLAY} | Email: ${BUSINESS.email}<br />
                   <em>You received this email because you opted in on our website inquiry form.</em>
                 </p>
               </div>
@@ -356,7 +357,7 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error("[/api/lead] Error handling lead:", err);
     return NextResponse.json(
-      { success: false, error: "An unexpected error occurred. Please contact us at (951) 325-4248." },
+      { success: false, error: `An unexpected error occurred. Please contact us at ${COMPANY_PHONE_DISPLAY}.` },
       { status: 500 }
     );
   }

@@ -6,6 +6,10 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
+export const COMPANY_PHONE_DISPLAY = process.env.NEXT_PUBLIC_ZEELY_PHONE_DISPLAY || "(951) 325-4248";
+export const COMPANY_PHONE_TEL = process.env.NEXT_PUBLIC_ZEELY_PHONE_TEL || "tel:9513254248";
+export const COMPANY_PHONE_RAW = COMPANY_PHONE_TEL.replace(/^tel:/, "");
+
 export const BUSINESS = {
   name: "KustomXworks Handyman Services",
   tagline: "Inland Empire & Desert's Most Trusted Handyman Service",
@@ -16,8 +20,9 @@ export const BUSINESS = {
 
 
   // ── Contact ────────────────────────────────────────────────────────────────
-  phone: "(951) 325-4248",
-  phoneRaw: "9513254248",
+  phone: COMPANY_PHONE_DISPLAY,
+  phoneRaw: COMPANY_PHONE_RAW,
+  phoneTel: COMPANY_PHONE_TEL,
   email: "kustomxworks@proton.me",
   website: "https://www.kustomxworks.com",
   address: "3337 W. Florida ave #166",

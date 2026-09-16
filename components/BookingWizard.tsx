@@ -240,7 +240,7 @@ export function BookingWizard() {
               </div>
               <div>
                 <label htmlFor="wiz-phone" className="form-label">Phone <span className="text-rust">*</span></label>
-                <input id="wiz-phone" type="tel" autoComplete="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className={`form-input ${errors.phone ? "border-red-400" : ""}`} placeholder="(951) 325-4248" />
+                <input id="wiz-phone" type="tel" autoComplete="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className={`form-input ${errors.phone ? "border-red-400" : ""}`} placeholder={BUSINESS.phone} />
                 {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
               </div>
               <div className="sm:col-span-2">

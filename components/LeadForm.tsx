@@ -187,7 +187,7 @@ export function LeadForm({
               value={formData.phone}
               onChange={handleChange}
               className={`form-input ${errors.phone ? "border-red-400" : ""}`}
-              placeholder="(951) 325-4248"
+              placeholder={BUSINESS.phone}
             />
             {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
           </div>

@@ -1,3 +1,4 @@
+import { COMPANY_PHONE_DISPLAY } from "@/content/business";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
@@ -15,7 +16,7 @@ export async function GET(req: NextRequest) {
         {
           id: "demo_1",
           name: "Marcus Vance",
-          phone: "(951) 325-4248",
+          phone: COMPANY_PHONE_DISPLAY,
           email: "marcus.v@example.com",
           city: "Hemet",
           service: "Concrete Block Wall Construction",
