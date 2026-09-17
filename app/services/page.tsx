@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 const specialtyLinks = [
+  { href: "/services/pool-remodel", label: "Pool Remodeling & Decking", badge: "New & Featured" },
   { href: "/services/aging-in-place", label: "Aging-in-Place Modifications", badge: "Senior Friendly" },
   { href: "/services/property-management", label: "Property Management", badge: "B2B" },
   { href: "/services/vacation-rental", label: "Vacation Rental Service", badge: "STR Priority" },
@@ -131,6 +132,68 @@ export default function ServicesPage() {
                 <div className="p-4">
                   <p className="font-heading font-bold text-white text-base">Charcoal Fireplace Suite</p>
                   <p className="text-xs text-orange-100/70 mt-1">Calacatta marble backer with ribbon fireplace credenza.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Swimming Pool Remodel & Outdoor Living Spotlight */}
+      <section className="section bg-[#0D1F2D] text-white relative overflow-hidden border-t border-white/10" aria-labelledby="pool-spotlight-heading">
+        <div className="container-site">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-900/50 border border-cyan-500/40 text-cyan-200 text-xs font-bold uppercase tracking-wider mb-3">
+                <span>🏊</span>
+                <span>Featured Remodel</span>
+              </div>
+              <h2 id="pool-spotlight-heading" className="font-heading font-black text-3xl md:text-4xl text-white mb-4">
+                Swimming Pool Remodeling &amp; Concrete Decking
+              </h2>
+              <p className="text-cyan-100/80 text-sm md:text-base leading-relaxed mb-6">
+                Bring your backyard oasis back to life. From complete pool replastering and pebble surfacing to new waterline tile, bullnose safety coping, concrete deck restoration, and custom curved masonry retaining walls with poolside outdoor kitchens.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/services/pool-remodel" className="btn-rust text-sm py-3 px-6 shadow-lg">
+                  Explore Pool Remodel Details →
+                </Link>
+                <Link href="/book?service=Pool%20Remodel" className="btn-outline text-white border-white/30 text-sm py-3 px-6">
+                  Request Pool Consultation
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/projects/pool-remodel-after-sparkling-deck-stucco.jpg"
+                    alt="Completed swimming pool remodel with sparkling water, resurfaced deck, and modern stucco exterior"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4">
+                  <p className="font-heading font-bold text-white text-base">Plaster, Coping &amp; Deck Overhaul</p>
+                  <p className="text-xs text-cyan-100/70 mt-1">Sparkling Caribbean blue finish, safety bullnose coping &amp; smooth concrete deck.</p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/projects/pool-remodel-after-retaining-wall-outdoor-living.jpg"
+                    alt="Custom curved stucco retaining wall with poolside patio and outdoor kitchen bar"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4">
+                  <p className="font-heading font-bold text-white text-base">Curved Retaining Wall &amp; Living</p>
+                  <p className="text-xs text-cyan-100/70 mt-1">Engineered radius block wall with smooth charcoal stucco and outdoor bar area.</p>
                 </div>
               </div>
             </div>

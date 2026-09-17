@@ -106,6 +106,9 @@ export default function HomePage() {
                 <span className="trust-chip text-xs font-semibold px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.1)", color: "#EDE6DC" }}>
                   ✓ Same-Week Service
                 </span>
+                <span className="trust-chip text-xs font-semibold px-3 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-400/40 text-cyan-200">
+                  🏊 Pool Remodel &amp; Decking
+                </span>
               </div>
 
               <h1
@@ -119,7 +122,7 @@ export default function HomePage() {
 
               <div className="bg-white/10 backdrop-blur-sm border-l-4 border-rust p-4 rounded-r-xl mb-6">
                 <p className="text-white font-bold text-lg mb-1">
-                  Concrete Block Walls · Custom Landscaping · Construction Expertise
+                  Concrete Block Walls · Pool Remodeling · Custom Landscaping · Construction
                 </p>
                 <p className="text-sm text-orange-100/90 leading-relaxed font-semibold mb-1">
                   Handyman Expertise, Contractor-Level Strength — Building America Back From the Ground Up.
@@ -239,6 +242,150 @@ export default function HomePage() {
             </p>
           </div>
 
+          {/* ── REAL BEFORE & AFTER REMODELS: POOL & LANDSCAPING ── */}
+          <div className="mb-16 bg-[#FAF6F0] rounded-3xl p-6 sm:p-10 border border-[#D8C4A8]/60 shadow-xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-[#D8C4A8]/50">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rust/10 text-rust text-xs font-bold uppercase tracking-wider mb-2">
+                  <span>🛠️</span>
+                  <span>Visual Proof · Real Job Site Results</span>
+                </div>
+                <h3 className="font-heading font-black text-2xl sm:text-3xl text-espresso">
+                  Before &amp; After Remodel Transformations
+                </h3>
+                <p className="text-sm text-[#6B5E52] mt-1">
+                  Real craftsmanship in the Inland Empire &amp; Coachella Valley — from raw dirt lots to turnkey pool &amp; patio resorts.
+                </p>
+              </div>
+              <div className="flex gap-3">
+                <Link href="/services/pool-remodel" className="btn-rust text-xs py-2.5 px-4 whitespace-nowrap">
+                  Pool Remodel Specs →
+                </Link>
+                <Link href="/gallery" className="btn-outline text-espresso border-espresso/30 text-xs py-2.5 px-4 whitespace-nowrap">
+                  Full Gallery
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+              {/* Feature 1: Swimming Pool Overhaul (7 cols) */}
+              <div className="lg:col-span-7 bg-white rounded-2xl p-6 border border-tan/60 shadow-md flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-bold uppercase tracking-wider text-cyan-800 bg-cyan-100 px-3 py-1 rounded-full">
+                      Featured Pool Remodel
+                    </span>
+                    <span className="text-xs text-[#6B5E52] font-semibold">Riverside County, CA</span>
+                  </div>
+                  <h4 className="font-heading font-black text-xl sm:text-2xl text-espresso mb-2">
+                    Inground Pool Resurfacing, Safety Coping &amp; Curved Retaining Wall
+                  </h4>
+                  <p className="text-sm text-[#6B5E52] leading-relaxed mb-4">
+                    Complete swimming pool restoration: replastered with sparkling Caribbean blue finish, safety bullnose brick coping, custom radius curved masonry retaining wall with smooth charcoal stucco, and multi-tier concrete deck coating.
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                    <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-black/10 group">
+                      <img
+                        src="/projects/pool-remodel-after-sparkling-deck-stucco.jpg"
+                        alt="Sparkling Caribbean blue pool with resurfaced concrete deck and diving board"
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute bottom-2 left-2 bg-black/75 text-white text-[10px] font-bold px-2 py-0.5 rounded">
+                        Sparkling Blue Replaster
+                      </div>
+                    </div>
+                    <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-black/10 group">
+                      <img
+                        src="/projects/pool-remodel-after-retaining-wall-outdoor-living.jpg"
+                        alt="Curved retaining wall with smooth stucco and poolside patio bar"
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute bottom-2 left-2 bg-black/75 text-white text-[10px] font-bold px-2 py-0.5 rounded">
+                        Curved Masonry Wall &amp; Bar
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-espresso mb-4">
+                    <span className="bg-[#FAF6F0] p-2 rounded-lg border border-tan/50">✓ Caribbean Blue Plaster</span>
+                    <span className="bg-[#FAF6F0] p-2 rounded-lg border border-tan/50">✓ Safety Bullnose Coping</span>
+                    <span className="bg-[#FAF6F0] p-2 rounded-lg border border-tan/50">✓ Deck Resurfacing &amp; Seal</span>
+                    <span className="bg-[#FAF6F0] p-2 rounded-lg border border-tan/50">✓ Curved Stucco Wall</span>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-tan/40 flex items-center justify-between gap-3">
+                  <Link href="/services/pool-remodel" className="text-xs font-bold text-rust hover:underline">
+                    Explore Pool Remodel Details →
+                  </Link>
+                  <Link href="/book?service=Pool%20Remodel" className="btn-rust text-xs py-2 px-4">
+                    Book Pool Quote
+                  </Link>
+                </div>
+              </div>
+
+              {/* Feature 2: Landscaping Before & After (5 cols) */}
+              <div className="lg:col-span-5 bg-white rounded-2xl p-6 border border-tan/60 shadow-md flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full">
+                      Landscaping Before &amp; After
+                    </span>
+                    <span className="text-xs text-[#6B5E52] font-semibold">Inland Empire, CA</span>
+                  </div>
+                  <h4 className="font-heading font-black text-xl text-espresso mb-2">
+                    Front Yard Dirt Lot into Raised Garden &amp; Pavers
+                  </h4>
+                  <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed mb-4">
+                    Bare soil lot completely transformed with custom timber planter box, 5-tier vertical herb tower, stone gravel border, and concrete paver walkway.
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-2.5 mb-4">
+                    {/* Before */}
+                    <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-black/10">
+                      <img
+                        src="/projects/landscape-remodel-before-dirt-yard.jpg"
+                        alt="Before: Untamed bare dirt yard"
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                      />
+                      <span className="absolute top-2 left-2 bg-black/85 text-white text-[10px] font-black px-2 py-0.5 rounded">
+                        BEFORE
+                      </span>
+                    </div>
+                    {/* After */}
+                    <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-black/10">
+                      <img
+                        src="/projects/landscape-remodel-after-garden-pavers.jpg"
+                        alt="After: Raised planter box, herb tower, gravel, and pavers"
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                      />
+                      <span className="absolute top-2 left-2 bg-rust text-white text-[10px] font-black px-2 py-0.5 rounded shadow">
+                        AFTER
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1 text-xs text-[#5A4B3D] mb-4">
+                    <p className="font-medium">• Eliminates dust, mud &amp; persistent weeds</p>
+                    <p className="font-medium">• Treated timber planter + space-saving herb tower</p>
+                    <p className="font-medium">• Durable paver walkway &amp; gravel drainage</p>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-tan/40 flex items-center justify-between gap-3">
+                  <Link href="/book?service=Landscaping%20%26%20Hardscaping" className="btn-rust w-full text-center text-xs py-2 px-4">
+                    Request Landscaping Quote →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* ── FEATURED MODERN OUTDOOR TRANSFORMATIONS & CONSTRUCTION SHOWCASE ── */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
             {/* Project 1: Cedar ADU with Rooftop Deck */}
@@ -314,7 +461,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Card 1: Concrete Block Walls */}
             <div className="card p-8 flex flex-col justify-between border-2 hover:border-rust transition-all duration-300 shadow-md hover:shadow-xl bg-cream/30">
               <div>
@@ -345,6 +492,48 @@ export default function HomePage() {
               <Link href="/book?service=Concrete%20Block%20Walls" className="btn-rust w-full text-center text-sm py-3">
                 Request Block Wall Quote →
               </Link>
+            </div>
+
+            {/* Card: Swimming Pool Remodeling & Decking */}
+            <div className="card p-6 flex flex-col justify-between border-2 hover:border-rust transition-all duration-300 shadow-md hover:shadow-xl bg-cream/30">
+              <div>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5" style={{ backgroundColor: "#D8C4A8" }}>
+                  <span className="text-rust font-black text-2xl">🏊</span>
+                </div>
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <span className="text-[11px] font-bold text-cyan-800 bg-cyan-100 px-2 py-0.5 rounded-full uppercase">
+                    New &amp; Featured
+                  </span>
+                </div>
+                <h3 className="font-heading font-bold text-xl text-espresso mb-2">
+                  Pool Remodel &amp; Decking
+                </h3>
+                <p className="text-xs sm:text-sm text-[#6B5E52] leading-relaxed mb-5">
+                  Turnkey inground pool restoration. Replastering, pebble finishes, waterline tile, safety bullnose coping, concrete deck resurfacing, and curved retaining walls.
+                </p>
+                <ul className="space-y-2 mb-6 text-xs sm:text-sm text-espresso font-medium">
+                  <li className="flex items-center gap-2">
+                    <span className="text-rust font-bold">✓</span> Plaster &amp; Pebble Resurfacing
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-rust font-bold">✓</span> Bullnose Safety Coping &amp; Tile
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-rust font-bold">✓</span> Concrete Deck Resurfacing
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-rust font-bold">✓</span> Curved Stucco Retaining Walls
+                  </li>
+                </ul>
+              </div>
+              <div className="space-y-2">
+                <Link href="/services/pool-remodel" className="btn-rust w-full text-center text-xs py-2.5 block shadow">
+                  Explore Pool Remodel →
+                </Link>
+                <Link href="/book?service=Pool%20Remodel" className="btn-outline text-espresso border-espresso/30 w-full text-center text-xs py-2 block hover:bg-white">
+                  Request Pool Quote
+                </Link>
+              </div>
             </div>
 
             {/* Card 2: Custom Landscaping */}

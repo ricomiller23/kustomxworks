@@ -9,6 +9,7 @@ import { PhoneIcon, MenuIcon, XIcon, ChevronDownIcon } from "lucide-react";
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Pool Remodel", href: "/services/pool-remodel" },
   { label: "Service Areas", href: "/handyman", hasDropdown: true },
   { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },

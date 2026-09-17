@@ -16,8 +16,18 @@ export interface ServiceCategory {
 export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "masonry-landscape-construction",
-    name: "Concrete Block Walls, Landscaping & Construction Expertise",
+    name: "Concrete Block Walls, Pool Remodeling, Landscaping & Construction",
     services: [
+      {
+        id: "pool-remodel",
+        name: "Swimming Pool Remodeling & Decking",
+        description:
+          "Complete inground swimming pool transformations: replastering & pebble finishes, waterline tile, safety bullnose coping, concrete deck resurfacing, custom curved block retaining walls, and outdoor living buildouts.",
+        icon: "droplet",
+        category: "masonry-landscape-construction",
+        bookingParam: "Pool Remodel",
+      },
+
       {
         id: "concrete-block-walls",
         name: "Concrete Block Walls & Masonry",

@@ -73,6 +73,7 @@ export function Footer() {
                 { label: "All Services", href: "/services" },
                 { label: "Book Online", href: "/book" },
                 { label: "Pricing", href: "/pricing" },
+                { label: "Pool Remodel", href: "/services/pool-remodel" },
                 { label: "Gallery", href: "/gallery" },
                 { label: "About Us", href: "/about" },
                 { label: "Blog", href: "/blog" },
@@ -95,6 +96,14 @@ export function Footer() {
           <div>
             <h3 className="font-heading font-bold text-white text-sm uppercase tracking-wider mb-5">Services</h3>
             <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/services/pool-remodel"
+                  className="text-sm font-bold text-white hover:text-rust transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-cyan-400">🏊</span> Swimming Pool Remodeling
+                </Link>
+              </li>
               {serviceLinks.map((svc) => (
                 <li key={svc.id}>
                   <Link

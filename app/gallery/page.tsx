@@ -29,6 +29,38 @@ interface MasterProject {
 
 const masterProjects: MasterProject[] = [
   {
+    id: "swimming-pool-deck-remodel",
+    title: "Turnkey Swimming Pool Remodel, Deck Resurfacing & Retaining Wall",
+    category: "Swimming Pool Remodeling & Outdoor Living",
+    location: "Riverside County, CA",
+    image: "/projects/pool-remodel-after-sparkling-deck-stucco.jpg",
+    alt: "Completed inground swimming pool remodel with sparkling blue plaster, bullnose safety coping, concrete deck resurfacing, and modern stucco retaining wall",
+    description:
+      "Full-scope inground swimming pool overhaul: complete replastering in sparkling Caribbean blue, waterline tile replacement, brick-edge bullnose safety coping, multi-tier concrete deck resurfacing, custom curved masonry retaining wall with smooth charcoal stucco, and integrated poolside outdoor kitchen bar.",
+    highlights: ["Caribbean Blue Replastering", "Bullnose Safety Coping & Waterline Tile", "Curved Masonry Wall & Outdoor Bar"],
+    specs: {
+      materials: "Commercial pool plaster, frost-proof waterline tile, reinforced masonry blocks, elastomeric deck coating",
+      timeline: "Complete pool & deck transformation: 2-3 weeks",
+      features: "Deep-end diving platform, custom elevation retaining wall, poolside bar & kitchen seating",
+    },
+  },
+  {
+    id: "front-yard-landscaping-before-after",
+    title: "Front Yard Landscaping & Raised Garden Bed Transformation",
+    category: "Custom Landscaping & Hardscaping",
+    location: "Inland Empire, CA",
+    image: "/projects/landscape-remodel-after-garden-pavers.jpg",
+    alt: "Front yard garden remodel featuring custom raised timber planter box, 5-tier vertical herb tower, stone gravel border, and concrete paver walkway",
+    description:
+      "Complete site overhaul converting an empty, barren dirt yard into a vibrant and productive garden environment. Custom rot-resistant timber planter box filled with enriched organic loam soil, space-saving 5-tier vertical herb tower, decorative crushed river rock perimeter border, and level paver walkways.",
+    highlights: ["Custom Built Raised Planter Box", "5-Tier Space-Saving Herb Tower", "Interlocking Paver Walkway & Gravel Border"],
+    specs: {
+      materials: "Treated rot-resistant structural timber, concrete patio pavers, river rock gravel, organic loam soil",
+      timeline: "Excavation, grading, framing & paving: 2-3 business days",
+      features: "Efficient vertical growing system, low-maintenance gravel perimeter, integrated drip irrigation ready",
+    },
+  },
+  {
     id: "parametric-wave-wall",
     title: "Custom 3D Parametric Wave Wall Sculpture",
     category: "Architectural Millwork & Accent Walls",
@@ -222,6 +254,197 @@ export default function GalleryPage() {
               >
                 Call {BUSINESS.phone}
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── REAL BEFORE & AFTER TRANSFORMATIONS SHOWCASE ── */}
+      <section className="section bg-white border-b border-tan/30" aria-labelledby="before-after-heading">
+        <div className="container-site">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rust/10 border border-rust/30 text-rust text-xs font-bold uppercase tracking-wider mb-3">
+              <span>🛠️</span>
+              <span>Visual Proof of Craftsmanship</span>
+            </div>
+            <h2 id="before-after-heading" className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-espresso mb-4">
+              Before &amp; After Remodel Transformations
+            </h2>
+            <p className="text-[#6B5E52] text-base sm:text-lg">
+              From bare dirt lots to productive gardens, and weathered pools to private backyard resorts — real craftsmanship with transparent results.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {/* Transformation 1: Landscaping Remodel (Direct Side-by-Side Before & After) */}
+            <div className="bg-[#FAF6F0] rounded-3xl p-6 sm:p-8 border border-[#D8C4A8]/60 shadow-lg flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="text-xs font-bold uppercase tracking-wider text-rust bg-rust/10 px-3 py-1 rounded-full">
+                    Landscaping Transformation
+                  </span>
+                  <span className="text-xs text-[#6B5E52] font-semibold">Inland Empire, CA</span>
+                </div>
+                <h3 className="font-heading font-black text-2xl text-espresso mb-2">
+                  Front Yard Dirt Lot to Raised Garden &amp; Pavers
+                </h3>
+                <p className="text-sm text-[#6B5E52] mb-6">
+                  Complete ground transformation: eliminating dust and weeds with engineered soil grading, custom timber planter box, 5-tier vertical herb tower, crushed stone border, and paver walkway.
+                </p>
+
+                {/* Side-by-side Before / After comparison */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  {/* Before */}
+                  <div className="relative rounded-2xl overflow-hidden border border-black/15 bg-black/5 shadow-sm group">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src="/projects/landscape-remodel-before-dirt-yard.jpg"
+                        alt="Before: Untamed bare dirt front yard lot before landscaping remodel"
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="absolute top-3 left-3 bg-black/80 backdrop-blur-sm text-white text-xs font-black px-2.5 py-1 rounded-md border border-white/20">
+                      BEFORE
+                    </div>
+                    <div className="p-3 bg-white/95 text-xs text-[#6B5E52] border-t border-tan/40">
+                      Barren dirt lot, zero walkway, high weed and dust accumulation.
+                    </div>
+                  </div>
+
+                  {/* After */}
+                  <div className="relative rounded-2xl overflow-hidden border border-rust/40 bg-black/5 shadow-sm group">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src="/projects/landscape-remodel-after-garden-pavers.jpg"
+                        alt="After: Custom raised timber planter box, 5-tier vertical herb tower, stone gravel border, and concrete paver walkway"
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="absolute top-3 left-3 bg-rust text-white text-xs font-black px-2.5 py-1 rounded-md border border-white/20 shadow-md">
+                      AFTER
+                    </div>
+                    <div className="p-3 bg-white/95 text-xs text-[#6B5E52] border-t border-tan/40">
+                      Custom planter bed, vertical herb tower, gravel perimeter &amp; pavers.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2 text-xs font-semibold text-espresso mb-6">
+                  <span className="bg-white px-2.5 py-1 rounded-md border border-tan/60">✓ Treated Timber Planter</span>
+                  <span className="bg-white px-2.5 py-1 rounded-md border border-tan/60">✓ 5-Tier Herb Tower</span>
+                  <span className="bg-white px-2.5 py-1 rounded-md border border-tan/60">✓ Concrete Paver Walkway</span>
+                  <span className="bg-white px-2.5 py-1 rounded-md border border-tan/60">✓ Crushed Stone Border</span>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-tan/40 flex flex-col sm:flex-row gap-3 items-center justify-between">
+                <Link
+                  href="/book?service=Landscaping%20%26%20Hardscaping"
+                  className="btn-rust w-full sm:w-auto text-center text-xs py-2.5 px-5"
+                >
+                  Book Landscaping Estimate →
+                </Link>
+                <span className="text-xs text-[#6B5E52] font-medium">
+                  Custom yard plans in 24 hrs
+                </span>
+              </div>
+            </div>
+
+            {/* Transformation 2: Swimming Pool Remodel & Deck Overhaul */}
+            <div className="bg-[#FAF6F0] rounded-3xl p-6 sm:p-8 border border-[#D8C4A8]/60 shadow-lg flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="text-xs font-bold uppercase tracking-wider text-cyan-800 bg-cyan-100 px-3 py-1 rounded-full">
+                    Swimming Pool Remodel
+                  </span>
+                  <span className="text-xs text-[#6B5E52] font-semibold">Riverside County, CA</span>
+                </div>
+                <h3 className="font-heading font-black text-2xl text-espresso mb-2">
+                  Inground Pool, Deck Resurfacing &amp; Curved Retaining Wall
+                </h3>
+                <p className="text-sm text-[#6B5E52] mb-6">
+                  Full overhaul: replastered with brilliant Caribbean blue finish, safety bullnose coping, custom radius curved masonry retaining wall with smooth stucco, concrete deck resurfacing, and poolside bar.
+                </p>
+
+                {/* Pool Photo Showcase */}
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  <div className="col-span-2 relative rounded-2xl overflow-hidden border border-black/15 bg-black/10 group">
+                    <div className="aspect-[16/9] overflow-hidden">
+                      <img
+                        src="/projects/pool-remodel-after-sparkling-deck-stucco.jpg"
+                        alt="Completed swimming pool remodel with sparkling water, diving platform, deck resurfacing, and stucco"
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="absolute top-3 left-3 bg-cyan-900/85 backdrop-blur-sm text-cyan-100 text-xs font-black px-2.5 py-1 rounded-md border border-cyan-400/30">
+                      COMPLETED POOL REMODEL
+                    </div>
+                  </div>
+
+                  <div className="relative rounded-2xl overflow-hidden border border-black/15 bg-black/10 group">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src="/projects/pool-remodel-after-retaining-wall-outdoor-living.jpg"
+                        alt="Curved stucco retaining wall and poolside patio bar"
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-2 bg-white/95 text-[11px] font-semibold text-espresso border-t border-tan/40 truncate">
+                      Curved Retaining Wall &amp; Bar
+                    </div>
+                  </div>
+
+                  <div className="relative rounded-2xl overflow-hidden border border-black/15 bg-black/10 group">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src="/projects/pool-remodel-after-luxury-swimming-pool.jpg"
+                        alt="Wide perspective across sparkling swimming pool and patio seating"
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-2 bg-white/95 text-[11px] font-semibold text-espresso border-t border-tan/40 truncate">
+                      Sparkling Water &amp; Coping
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2 text-xs font-semibold text-espresso mb-6">
+                  <span className="bg-white px-2.5 py-1 rounded-md border border-tan/60">✓ Caribbean Blue Plaster</span>
+                  <span className="bg-white px-2.5 py-1 rounded-md border border-tan/60">✓ Safety Bullnose Coping</span>
+                  <span className="bg-white px-2.5 py-1 rounded-md border border-tan/60">✓ Curved Stucco Wall</span>
+                  <span className="bg-white px-2.5 py-1 rounded-md border border-tan/60">✓ Resurfaced Decking</span>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-tan/40 flex flex-col sm:flex-row gap-3 items-center justify-between">
+                <div className="flex flex-wrap gap-2 w-full sm:w-auto">
+                  <Link
+                    href="/services/pool-remodel"
+                    className="btn-rust w-full sm:w-auto text-center text-xs py-2.5 px-4"
+                  >
+                    View Pool Specs →
+                  </Link>
+                  <Link
+                    href="/book?service=Pool%20Remodel"
+                    className="btn-outline text-espresso border-espresso/40 w-full sm:w-auto text-center text-xs py-2.5 px-4"
+                  >
+                    Book Pool Quote
+                  </Link>
+                </div>
+                <span className="text-xs text-[#6B5E52] font-medium">
+                  Free on-site evaluations
+                </span>
+              </div>
             </div>
           </div>
         </div>

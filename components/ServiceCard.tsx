@@ -49,12 +49,22 @@ export function ServiceCard({ service, showCTA = true }: ServiceCardProps) {
         <p className="text-sm text-[#6B5E52] leading-relaxed">{service.description}</p>
       </div>
       {showCTA && (
-        <Link
-          href={bookingUrl}
-          className="text-sm font-bold text-rust hover:text-rust-hover transition-colors flex items-center gap-1"
-        >
-          Book This Service →
-        </Link>
+        <div className="flex items-center justify-between gap-2 pt-3 border-t border-tan/30">
+          <Link
+            href={bookingUrl}
+            className="text-sm font-bold text-rust hover:text-rust-hover transition-colors flex items-center gap-1"
+          >
+            Book This Service →
+          </Link>
+          {service.id === "pool-remodel" && (
+            <Link
+              href="/services/pool-remodel"
+              className="text-xs font-bold text-espresso bg-[#FAF6F0] hover:bg-tan/50 px-2.5 py-1 rounded-md border border-tan/60 transition-colors"
+            >
+              Full Details →
+            </Link>
+          )}
+        </div>
       )}
     </article>
   );
