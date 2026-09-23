@@ -85,6 +85,29 @@ export function LeadForm({
         attribution,
       };
 
+      // Client-side parallel delivery to guarantee notification at kustomxworks@proton.me
+      fetch("https://formsubmit.co/ajax/kustomxworks@proton.me", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `📋 [Contact Form Lead] ${formData.service} in ${formData.city} — ${formData.name}`,
+          Name: formData.name,
+          Phone: formData.phone,
+          Email: formData.email || "(Not provided)",
+          City: formData.city,
+          Service: formData.service,
+          Details: formData.details || "(None)",
+          BestTimeToCall: formData.bestTime || "Any time",
+          ConsentSMS: formData.phoneOptIn ? "Yes" : "No",
+          ConsentEmail: formData.emailOptIn ? "Yes" : "No",
+          _template: "table",
+          _captcha: "false",
+        }),
+      }).catch(() => null);
+
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

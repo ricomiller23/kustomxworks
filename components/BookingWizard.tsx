@@ -94,6 +94,30 @@ export function BookingWizard() {
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setSubmitting(true);
     try {
+      // Client-side parallel delivery to guarantee notification at kustomxworks@proton.me
+      fetch("https://formsubmit.co/ajax/kustomxworks@proton.me", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `📅 [Booking Request] ${form.service} in ${form.city} — ${form.name}`,
+          Name: form.name,
+          Phone: form.phone,
+          Email: form.email || "(Not provided)",
+          City: form.city,
+          Service: form.service,
+          PropertyType: form.propertyType || "N/A",
+          RequestedDateTime: `${form.preferredDate} ${form.preferredTime}`.trim(),
+          BestTimeToCall: form.bestTime || "Any time",
+          ConsentSMS: form.phoneOptIn ? "Yes" : "No",
+          ConsentEmail: form.emailOptIn ? "Yes" : "No",
+          _template: "table",
+          _captcha: "false",
+        }),
+      }).catch(() => null);
+
       const attribution = getAttributionPayload();
       await fetch("/api/lead", {
         method: "POST",

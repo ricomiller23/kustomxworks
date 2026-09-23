@@ -216,9 +216,50 @@ export async function POST(req: NextRequest) {
       console.error("[/api/lead] Database persistence warning:", dbErr);
     }
 
-    // 4. Automation & Email Sending via Resend
-    const resendApiKey = process.env.RESEND_API_KEY;
+    // 4. Guaranteed Email Dispatch (FormSubmit + Resend)
     const ownerEmail = process.env.OWNER_DIGEST_EMAIL || process.env.NOTIFICATION_EMAIL || "kustomxworks@proton.me";
+    const resendApiKey = process.env.RESEND_API_KEY;
+
+    // 4a. Guaranteed Direct Dispatch via FormSubmit to ownerEmail
+    try {
+      const fsSubject = `${score >= 70 ? "🚨 [HIGH VALUE " + score + "/100]" : "📋 [Lead " + score + "/100]"} ${body.service} in ${body.city} — ${body.name}`;
+      const fsPayload: Record<string, any> = {
+        _subject: fsSubject,
+        "Customer Name": body.name,
+        "Phone": body.phone,
+        "Email": body.email || "(Not provided)",
+        "City": body.city,
+        "Service Requested": body.service,
+        "Project Details": body.details || "(None provided)",
+        "Best Time to Call": body.bestTime || "Any time",
+        "Lead Quality Score": `${score}/100`,
+        "Lead Source": body.source || "lead-form",
+        "Attribution": `${attr.utmSource || "direct"} ${attr.gclid ? "(Google Ads)" : ""} ${attr.fbclid ? "(Meta)" : ""}`.trim(),
+        "SMS Consent": body.phoneOptIn ? "YES (TCPA Compliant)" : "No",
+        "Email Consent": body.emailOptIn ? "YES" : "No",
+        _template: "table",
+        _captcha: "false"
+      };
+      if (body.propertyType) fsPayload["Property Type"] = body.propertyType;
+      if (body.preferredDate || body.preferredTime) {
+        fsPayload["Preferred Date/Time"] = `${body.preferredDate || ""} ${body.preferredTime || ""}`.trim();
+      }
+
+      await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(ownerEmail)}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Origin": "https://kustomxworks.com",
+          "Referer": "https://kustomxworks.com/contact"
+        },
+        body: JSON.stringify(fsPayload)
+      }).catch((e) => console.error("[/api/lead] FormSubmit fetch error:", e));
+
+      console.log(`[/api/lead] FormSubmit lead dispatched to ${ownerEmail}`);
+    } catch (fsErr) {
+      console.error("[/api/lead] FormSubmit dispatch exception:", fsErr);
+    }
 
     if (resendApiKey) {
       // 4a. Owner Notification Alert
