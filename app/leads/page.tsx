@@ -239,6 +239,10 @@ export default function LeadsDashboardPage() {
             <span className="text-xs bg-rust/30 text-orange-200 px-2 py-0.5 rounded-full border border-rust/40">
               Live Pipeline
             </span>
+            <span className="text-xs bg-emerald-950/80 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/40 hidden sm:inline-flex items-center gap-1">
+              <ShieldCheckIcon size={11} />
+              CRM Backup Active
+            </span>
           </div>
 
           <div className="flex items-center gap-3">
@@ -257,6 +261,15 @@ export default function LeadsDashboardPage() {
               <DownloadIcon size={14} />
               <span>Export CSV</span>
             </button>
+            <a
+              href="/api/leads/backup"
+              download
+              className="text-xs py-1.5 px-3 flex items-center gap-1.5 bg-stone-700 hover:bg-stone-600 text-white rounded shadow transition-colors font-medium"
+              title="Download full JSON backup of all submissions"
+            >
+              <ShieldCheckIcon size={14} className="text-emerald-400" />
+              <span>Download Backup (JSON)</span>
+            </a>
             <button
               onClick={handleLogout}
               className="p-2 text-stone-400 hover:text-red-300 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-1 text-xs"

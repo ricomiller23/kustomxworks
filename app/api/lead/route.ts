@@ -1,8 +1,9 @@
 import { BUSINESS, COMPANY_PHONE_DISPLAY, COMPANY_PHONE_TEL } from "@/content/business";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { saveLead, LeadRecord } from "@/lib/crm-storage";
 
-// In-memory sliding-window rate limiter: max 5 requests per 10 minutes per IP
+// In-memory sliding-window rate limiter: max 10 requests per 10 minutes per IP
 interface RateLimitEntry {
   count: number;
   resetAt: number;
@@ -12,7 +13,7 @@ const rateLimitMap = new Map<string, RateLimitEntry>();
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const windowMs = 10 * 60 * 1000; // 10 minutes
-  const limit = 5;
+  const limit = 10;
 
   const entry = rateLimitMap.get(ip);
   if (!entry || now > entry.resetAt) {
@@ -153,14 +154,72 @@ export async function POST(req: NextRequest) {
     const disclosureText =
       "TCPA SMS: By checking this box, I agree to receive text messages and/or phone calls from KustomXworks regarding my inquiry. Reply STOP to cancel. CAN-SPAM Email: I agree to receive email updates and project estimates.";
 
-    // 3. Database Persistence (with safe fallback if DB URL not configured)
+    const nowIso = new Date().toISOString();
     let leadId = `lead_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
-    let dbPersisted = false;
+
+    // 3. Persistent Cloud CRM Backup Store
+    const leadRecord: LeadRecord = {
+      id: leadId,
+      name: body.name.trim(),
+      phone: body.phone.trim(),
+      email: body.email?.trim() || null,
+      city: body.city.trim(),
+      service: body.service.trim(),
+      details: body.details?.trim() || null,
+      bestTime: body.bestTime || null,
+      propertyType: body.propertyType || null,
+      preferredDate: body.preferredDate || null,
+      preferredTime: body.preferredTime || null,
+      source: body.source || "lead-form",
+      score,
+      status: "NEW",
+      gclid: attr.gclid || null,
+      fbclid: attr.fbclid || null,
+      msclkid: attr.msclkid || null,
+      utmSource: attr.utmSource || null,
+      utmMedium: attr.utmMedium || null,
+      utmCampaign: attr.utmCampaign || null,
+      utmTerm: attr.utmTerm || null,
+      utmContent: attr.utmContent || null,
+      landingPage: attr.landingPage || null,
+      referrer: attr.referrer || null,
+      createdAt: nowIso,
+      consent: {
+        type: consentType,
+        ip,
+        userAgent,
+        emailOptIn: !!body.emailOptIn,
+        phoneOptIn: !!body.phoneOptIn,
+        disclosure: disclosureText,
+        consentText: disclosureText,
+        consentSource: body.source || "website",
+        consentIp: ip,
+        createdAt: nowIso,
+      },
+      activities: [
+        {
+          id: `act_${Date.now()}`,
+          type: "LEAD_CREATED",
+          description: `Lead created via ${body.source || "lead-form"} with Lead Score ${score}/100`,
+          createdAt: nowIso,
+        },
+      ],
+    };
 
     try {
+      await saveLead(leadRecord);
+      console.log(`[/api/lead] Successfully backed up lead to Cloud CRM Store: ${leadId}`);
+    } catch (saveErr) {
+      console.error("[/api/lead] Cloud CRM backup error:", saveErr);
+    }
+
+    // 4. Optional Database Persistence (if DATABASE_URL configured)
+    let dbPersisted = false;
+    try {
       if (process.env.DATABASE_URL) {
-        const lead = await prisma.lead.create({
+        const dbLead = await prisma.lead.create({
           data: {
+            id: leadId,
             name: body.name.trim(),
             phone: body.phone.trim(),
             email: body.email?.trim() || null,
@@ -174,7 +233,6 @@ export async function POST(req: NextRequest) {
             source: body.source || "lead-form",
             score,
             status: "NEW",
-            // Attribution
             gclid: attr.gclid || null,
             fbclid: attr.fbclid || null,
             msclkid: attr.msclkid || null,
@@ -185,7 +243,6 @@ export async function POST(req: NextRequest) {
             utmContent: attr.utmContent || null,
             landingPage: attr.landingPage || null,
             referrer: attr.referrer || null,
-            // Consent relation
             consents: {
               create: {
                 type: consentType,
@@ -200,7 +257,6 @@ export async function POST(req: NextRequest) {
                 consentAt: new Date(),
               },
             },
-            // Activity log
             activities: {
               create: {
                 type: "LEAD_CREATED",
@@ -209,18 +265,18 @@ export async function POST(req: NextRequest) {
             },
           },
         });
-        leadId = lead.id;
+        leadId = dbLead.id;
         dbPersisted = true;
       }
     } catch (dbErr) {
-      console.error("[/api/lead] Database persistence warning:", dbErr);
+      console.error("[/api/lead] Database persistence notice:", dbErr);
     }
 
-    // 4. Guaranteed Email Dispatch (FormSubmit + Resend)
+    // 5. Guaranteed Email Dispatch (FormSubmit + Resend)
     const ownerEmail = process.env.OWNER_DIGEST_EMAIL || process.env.NOTIFICATION_EMAIL || "kustomxworks@proton.me";
     const resendApiKey = process.env.RESEND_API_KEY;
 
-    // 4a. Guaranteed Direct Dispatch via FormSubmit to ownerEmail
+    // 5a. Guaranteed Direct Dispatch via FormSubmit to ownerEmail
     try {
       const fsSubject = `${score >= 70 ? "🚨 [HIGH VALUE " + score + "/100]" : "📋 [Lead " + score + "/100]"} ${body.service} in ${body.city} — ${body.name}`;
       const fsPayload: Record<string, any> = {
@@ -262,7 +318,7 @@ export async function POST(req: NextRequest) {
     }
 
     if (resendApiKey) {
-      // 4a. Owner Notification Alert
+      // 5b. Owner Notification Alert via Resend
       try {
         const ownerSubject = `${score >= 70 ? "🚨 [HIGH VALUE " + score + "/100]" : "📋 [Lead " + score + "/100]"} ${body.service} in ${body.city} — ${body.name}`;
         const ownerHtml = `
@@ -331,7 +387,7 @@ export async function POST(req: NextRequest) {
         console.error("[/api/lead] Owner alert email failed:", err);
       }
 
-      // 4b. Customer Welcome Autoresponder (only if emailOptIn === true and email provided)
+      // 5c. Customer Welcome Autoresponder (only if emailOptIn === true and email provided)
       if (body.emailOptIn && body.email?.trim()) {
         try {
           const custSubject = `We received your inquiry — KustomXworks`;
@@ -390,8 +446,6 @@ export async function POST(req: NextRequest) {
           console.error("[/api/lead] Customer welcome autoresponder failed:", err);
         }
       }
-    } else {
-      console.log(`[/api/lead] RESEND_API_KEY not set. Lead logged (Score ${score}/100): ${body.name} - ${body.phone}`);
     }
 
     return NextResponse.json({ success: true, leadId, score }, { status: 200 });
