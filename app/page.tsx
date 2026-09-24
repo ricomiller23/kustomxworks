@@ -186,7 +186,7 @@ export default function HomePage() {
 
                 <div className="relative rounded-xl overflow-hidden bg-black aspect-video max-h-[540px] flex items-center justify-center shadow-inner">
                   <video
-                    src="/videos/kustomxworks-showcase.mp4?v=20260923-2"
+                    src="/videos/kustomxworks-showcase.mp4?v=20260923-denoised"
                     autoPlay
                     loop
                     muted
@@ -196,7 +196,7 @@ export default function HomePage() {
                     className="w-full h-full object-cover rounded-xl"
                     aria-label="KustomXworks Concrete Block Walls, Landscaping and Construction Showcase Video"
                   >
-                    <source src="/videos/kustomxworks-showcase.mp4?v=20260923-2" type="video/mp4" />
+                    <source src="/videos/kustomxworks-showcase.mp4?v=20260923-denoised" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
